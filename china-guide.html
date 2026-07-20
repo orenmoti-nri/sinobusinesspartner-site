@@ -624,6 +624,19 @@
 })();
 </script>
 
+<!-- Lead conversion tracking: fire Meta Pixel 'Lead' on real contact clicks (only after consent) -->
+<script>
+(function(){
+  document.addEventListener('click',function(e){
+    var a=e.target.closest?e.target.closest('a'):null; if(!a)return;
+    var h=a.getAttribute('href')||'';
+    if(/^mailto:|^tel:|wa\.me\//i.test(h)){
+      if(window.fbq){try{fbq('track','Lead');}catch(_){}}
+    }
+  },true);
+})();
+</script>
+
 <!-- Accessibility widget (Negishot · certified IL accessibility) -->
 <script src="https://negishot.co.il/cdn/widget.php?code=NGS_D4A7A724A799"></script>
 </body>
