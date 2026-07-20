@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>China Guide for Business Travelers — Sino Business Partner</title>
+<meta name="description" content="A working China briefing for business travelers — hubs, trade fairs, visas, payments, etiquette and experiences. By Sino Business Partner. West to China, designed.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%230E1413'/%3E%3Ccircle cx='36' cy='38' r='13' fill='%236FB7A9'/%3E%3Ccircle cx='62' cy='42' r='16' fill='none' stroke='%23CBB183' stroke-width='3'/%3E%3Ccircle cx='45' cy='64' r='18' fill='none' stroke='%236FB7A9' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0E1413;
+    --bg-2:#121A18;
+    --bg-3:#0A0F0E;
+    --panel:#141D1B;
+    --jade:#6FB7A9;
+    --jade-bright:#8FD6C8;
+    --jade-dim:#3E6B63;
+    --jade-glow:rgba(111,183,169,.32);
+    --gold:#CBB183;
+    --gold-2:#B2955F;
+    --text:#E8EFEC;
+    --text-2:#B9C6C1;
+    --muted:#7F918B;
+    --line:rgba(255,255,255,.07);
+    --line-2:rgba(255,255,255,.13);
+    --grotesk:'Space Grotesk',-apple-system,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
+    --body:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    --cn:'Noto Sans SC',var(--body);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3,h4{font-family:var(--grotesk);font-weight:600;line-height:1.05;letter-spacing:-.02em}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--jade);color:var(--bg)}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 40px}
+
+  /* grid-line texture */
+  .gridbg{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(120% 90% at 50% 0%,#000 40%,transparent 78%);-webkit-mask-image:radial-gradient(120% 90% at 50% 0%,#000 40%,transparent 78%)}
+
+  /* ── MONO LABEL ── */
+  .kicker{font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--jade);display:inline-flex;align-items:center;gap:10px}
+  .kicker::before{content:"";width:16px;height:1px;background:var(--jade)}
+  .kicker.gold{color:var(--gold)}.kicker.gold::before{background:var(--gold)}
+  .tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;color:var(--text-2);border:1px solid var(--line-2);border-radius:3px;padding:5px 10px;display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+
+  /* ── STATUS BAR ── */
+  .statusbar{position:fixed;top:0;left:0;right:0;height:30px;z-index:70;background:var(--bg-3);border-bottom:1px solid var(--line);display:flex;align-items:center;overflow:hidden;font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;color:var(--muted)}
+  .ticker{display:flex;gap:34px;white-space:nowrap;padding-left:34px;animation:ticker 34s linear infinite;will-change:transform}
+  .ticker span{display:inline-flex;align-items:center;gap:10px}
+  .ticker b{color:var(--text-2);font-weight:500}
+  .ticker .ok{color:var(--jade)}
+  .pulse-dot{width:6px;height:6px;border-radius:50%;background:var(--jade);box-shadow:0 0 0 0 var(--jade-glow);animation:beacon 2.4s ease-out infinite}
+  @keyframes ticker{to{transform:translateX(-50%)}}
+  @keyframes beacon{0%{box-shadow:0 0 0 0 var(--jade-glow)}70%{box-shadow:0 0 0 7px transparent}100%{box-shadow:0 0 0 0 transparent}}
+
+  /* ── NAV ── */
+  header.nav{position:fixed;top:30px;left:0;right:0;z-index:60;transition:.4s cubic-bezier(.2,.7,.2,1)}
+  header.nav.scrolled{background:rgba(10,15,14,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .logo{display:flex;align-items:center;gap:12px}
+  .logo svg{width:34px;height:34px;flex-shrink:0}
+  .logo-txt{font-family:var(--grotesk);font-weight:700;font-size:.98rem;letter-spacing:.02em;line-height:1}
+  .logo-txt small{display:block;font-family:var(--mono);font-size:.56rem;font-weight:400;letter-spacing:.3em;color:var(--jade);margin-top:4px}
+  nav.links{display:flex;align-items:center;gap:34px}
+  nav.links a:not(.btn){font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;color:var(--text-2);text-transform:uppercase;position:relative;transition:.25s}
+  nav.links a:not(.btn):hover{color:var(--text)}
+  nav.links a:not(.btn)::after{content:"";position:absolute;left:0;bottom:-7px;height:1px;width:0;background:var(--jade);transition:.3s}
+  nav.links a:not(.btn):hover::after{width:100%}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-weight:500;font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;padding:12px 20px;border-radius:4px;cursor:pointer;border:1px solid transparent;transition:.3s cubic-bezier(.2,.7,.2,1)}
+  .btn-jade{background:var(--jade);color:#06100E;font-weight:600}
+  .btn-jade:hover{background:var(--jade-bright);box-shadow:0 0 30px var(--jade-glow);transform:translateY(-1px)}
+  .btn-ghost{border-color:var(--line-2);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--jade);color:var(--jade)}
+
+  /* ── HERO ── */
+  .hero{position:relative;padding:150px 0 90px;overflow:hidden}
+  .hero .glowtop{position:absolute;top:-10%;right:-5%;width:820px;height:620px;pointer-events:none;background:radial-gradient(circle at 60% 40%,var(--jade-glow),transparent 62%);opacity:.55;filter:blur(10px)}
+  .hero .wrap{position:relative;z-index:2}
+  .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:56px;align-items:center}
+  .hero h1{font-size:clamp(2.5rem,5.1vw,4.1rem);font-weight:600;margin:24px 0 22px;letter-spacing:-.03em;line-height:1.02}
+  .hero h1 .hl{color:var(--jade)}
+  .hero h1 .cn{font-family:var(--cn);font-weight:700}
+  .hero .lead{font-size:1.1rem;color:var(--text-2);max-width:520px;margin-bottom:16px}
+  .hero .lead b{color:var(--text);font-weight:600}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
+  .hero-rail{display:flex;gap:26px;margin-top:34px;padding-top:22px;border-top:1px solid var(--line)}
+  .hero-rail div{font-family:var(--mono)}
+  .hero-rail .n{font-size:1.02rem;color:var(--jade);font-weight:500}
+  .hero-rail .l{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+
+  /* ── CONSOLE (signature) ── */
+  .console{position:relative;background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line-2);border-radius:10px;overflow:hidden;box-shadow:0 40px 90px -40px rgba(0,0,0,.8), inset 0 1px 0 rgba(255,255,255,.04)}
+  .console-head{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;color:var(--text-2);text-transform:uppercase}
+  .console-head .sig{width:7px;height:7px;border-radius:50%;background:var(--jade);box-shadow:0 0 10px var(--jade)}
+  .console-head .r{margin-left:auto;color:var(--jade);display:flex;align-items:center;gap:6px}
+  .console-head .dots{display:flex;gap:5px}
+  .console-head .dots i{width:7px;height:7px;border-radius:50%;background:var(--line-2);display:block}
+  .schematic{display:block;width:100%;height:auto;background:
+     radial-gradient(circle at 20% 30%,rgba(111,183,169,.05),transparent 40%),
+     linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+     linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+     background-size:auto,26px 26px,26px 26px}
+  .console-read{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+  .console-read .cell{padding:14px 16px;border-right:1px solid var(--line)}
+  .console-read .cell:last-child{border-right:none}
+  .console-read .k{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .console-read .v{font-family:var(--mono);font-size:.98rem;color:var(--text);margin-top:6px;display:flex;align-items:center;gap:7px}
+  .console-read .v .g{color:var(--jade)}
+  .console-read .v .go{color:var(--gold)}
+
+  /* svg schematic elements */
+  .lk{fill:none;stroke:var(--jade-dim);stroke-width:1.4;stroke-dasharray:520;stroke-dashoffset:520;animation:draw 1.5s cubic-bezier(.4,.1,.2,1) forwards}
+  .grid-svc{stroke:rgba(255,255,255,.05);stroke-width:1}
+  .node-o{fill:var(--bg-3);stroke:var(--jade);stroke-width:1.4}
+  .node-d{fill:var(--jade);opacity:0}
+  .node-appear{animation:pop .5s cubic-bezier(.2,.7,.2,1) forwards}
+  .ring{fill:none;stroke:var(--jade);opacity:.4}
+  .ring.a{animation:radar 3s ease-out infinite}
+  .lbl{font-family:'IBM Plex Mono',monospace;fill:var(--text-2)}
+  .lbl.o{fill:var(--jade)}
+  .lbl.co{fill:var(--muted);font-size:8px}
+  .pulse{fill:var(--jade-bright)}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  @keyframes pop{from{opacity:0;transform:scale(.3)}to{opacity:1;transform:scale(1)}}
+  @keyframes radar{0%{r:6;opacity:.5}100%{r:22;opacity:0}}
+
+  /* ── SECTIONS ── */
+  section{position:relative;padding:104px 0}
+  .sec-head{max-width:720px;margin-bottom:56px}
+  .sec-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem);margin:18px 0 16px;font-weight:600;letter-spacing:-.025em}
+  .sec-head p{color:var(--muted);font-size:1.06rem}
+  .divide{border-top:1px solid var(--line)}
+
+  /* ── TELEMETRY STRIP ── */
+  .telemetry{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-3)}
+  .telemetry .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+  .tcell{padding:34px 26px;border-right:1px solid var(--line);position:relative}
+  .tcell:last-child{border-right:none}
+  .tcell .n{font-family:var(--mono);font-size:2.1rem;font-weight:500;color:var(--text);letter-spacing:-.01em;line-height:1}
+  .tcell .n .u{color:var(--jade)}
+  .tcell .l{font-size:.82rem;color:var(--muted);margin-top:12px;max-width:200px}
+  .tcell::before{content:"";position:absolute;top:34px;left:26px;width:14px;height:1px;background:var(--gold)}
+  .tcell .n{padding-top:14px}
+
+  /* ── ABOUT ── */
+  .about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+  .about-copy h2{font-size:clamp(1.9rem,3.6vw,2.7rem);margin:18px 0 20px;font-weight:600;letter-spacing:-.025em}
+  .about-copy p{color:var(--text-2);margin-bottom:16px;font-size:1.04rem}
+  .pull{border-left:2px solid var(--jade);padding:4px 0 4px 22px;margin:26px 0;font-family:var(--grotesk);font-size:1.22rem;color:var(--text);line-height:1.4;font-weight:500}
+  .sys-panel{background:var(--panel);border:1px solid var(--line-2);border-radius:10px;overflow:hidden}
+  .sys-panel .ph{display:flex;align-items:center;gap:10px;padding:14px 20px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-2)}
+  .sys-panel .ph .sig{width:7px;height:7px;border-radius:50%;background:var(--jade);box-shadow:0 0 10px var(--jade)}
+  .srow{display:flex;gap:16px;padding:22px 20px;border-top:1px solid var(--line)}
+  .srow:first-of-type{border-top:none}
+  .srow .ix{font-family:var(--mono);font-size:.72rem;color:var(--jade);padding-top:3px}
+  .srow b{display:block;font-family:var(--grotesk);font-weight:600;font-size:1rem;margin-bottom:5px}
+  .srow span{font-size:.9rem;color:var(--muted)}
+  .srow .chk{margin-left:auto;color:var(--jade);font-family:var(--mono);font-size:.66rem;align-self:center;border:1px solid var(--jade-dim);border-radius:3px;padding:3px 7px}
+
+  /* ── BENTO CAPABILITIES ── */
+  .bento{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:16px}
+  .mod{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:28px;position:relative;overflow:hidden;transition:.35s cubic-bezier(.2,.7,.2,1);display:flex;flex-direction:column}
+  .mod::after{content:"";position:absolute;inset:0;border-radius:10px;pointer-events:none;box-shadow:inset 0 0 0 1px transparent;transition:.35s}
+  .mod:hover{transform:translateY(-4px);border-color:transparent;background:var(--bg-2)}
+  .mod:hover::after{box-shadow:inset 0 0 0 1px var(--jade),0 0 40px -6px var(--jade-glow)}
+  .mod .mh{display:flex;align-items:center;justify-content:space-between;margin-bottom:auto}
+  .mod .idx{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;color:var(--muted)}
+  .mod .ic{width:40px;height:40px;border:1px solid var(--line-2);border-radius:7px;display:grid;place-items:center;color:var(--jade)}
+  .mod h4{font-family:var(--grotesk);font-size:1.18rem;font-weight:600;margin:30px 0 10px}
+  .mod p{font-size:.92rem;color:var(--muted)}
+  .mod.feature{grid-column:span 2}
+  .mod.tall{grid-row:span 2}
+  .mod.feature h4{font-size:1.4rem}
+  .mod .cn-mark{position:absolute;right:18px;bottom:10px;font-family:var(--cn);font-weight:700;font-size:4.2rem;color:rgba(111,183,169,.06);line-height:1;pointer-events:none}
+  .mod .metric{font-family:var(--mono);font-size:.7rem;color:var(--jade);margin-top:16px;letter-spacing:.06em}
+
+  /* ── SERVICES ── */
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .svc{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:28px;position:relative;overflow:hidden;transition:.35s cubic-bezier(.2,.7,.2,1);display:flex;flex-direction:column}
+  .svc::after{content:"";position:absolute;inset:0;border-radius:10px;pointer-events:none;box-shadow:inset 0 0 0 1px transparent;transition:.35s}
+  .svc:hover{transform:translateY(-4px);border-color:transparent;background:var(--bg-2)}
+  .svc:hover::after{box-shadow:inset 0 0 0 1px var(--jade),0 0 40px -6px var(--jade-glow)}
+  .svc .sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+  .svc .ic{width:44px;height:44px;border:1px solid var(--line-2);border-radius:8px;display:grid;place-items:center;color:var(--jade)}
+  .svc .sx{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;color:var(--muted)}
+  .svc h4{font-family:var(--grotesk);font-size:1.16rem;font-weight:600;margin-bottom:10px}
+  .svc p{font-size:.9rem;color:var(--muted);margin-bottom:auto}
+  .svc .spec{font-family:var(--mono);font-size:.64rem;color:var(--jade);letter-spacing:.05em;margin-top:20px;padding-top:14px;border-top:1px solid var(--line);display:flex;align-items:center;gap:8px}
+  .svc .spec::before{content:"◇";color:var(--gold)}
+
+  /* ── CLIENTS ── */
+  .clients-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .ccard{background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:26px 22px;transition:.35s;position:relative}
+  .ccard::before{content:"";position:absolute;top:0;left:22px;right:22px;height:2px;background:var(--jade);transform:scaleX(0);transform-origin:left;transition:.4s}
+  .ccard:hover{border-color:var(--line-2);transform:translateY(-4px)}
+  .ccard:hover::before{transform:scaleX(1)}
+  .ccard .ic{color:var(--jade);margin-bottom:16px}
+  .ccard h4{font-size:1.08rem;font-weight:600;margin-bottom:9px}
+  .ccard p{font-size:.86rem;color:var(--muted)}
+  .ccard .ct{margin-top:16px}
+  .client-note{margin-top:34px;font-family:var(--mono);font-size:.86rem;color:var(--jade);letter-spacing:.03em;display:flex;align-items:center;gap:12px}
+  .client-note::before{content:"//";color:var(--gold)}
+
+  /* ── PARTNERSHIP ── */
+  .pcards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .pcard{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:34px;position:relative;overflow:hidden;transition:.35s}
+  .pcard:hover{border-color:var(--jade-dim);background:var(--bg-2)}
+  .pcard .top{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+  .pcard .glyph{width:46px;height:46px;border-radius:8px;background:rgba(111,183,169,.09);border:1px solid var(--line-2);display:grid;place-items:center;font-family:var(--cn);font-weight:700;font-size:1.4rem;color:var(--jade)}
+  .pcard .pn{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;color:var(--muted)}
+  .pcard h4{font-size:1.24rem;font-weight:600;margin-bottom:10px}
+  .pcard p{color:var(--text-2);font-size:.95rem}
+
+  /* ── PROCESS PIPELINE ── */
+  .pipe{position:relative}
+  .pipe-rail{position:absolute;top:38px;left:6%;right:6%;height:1px;background:var(--line-2)}
+  .pipe-rail .fill{position:absolute;inset:0;background:linear-gradient(90deg,var(--jade),var(--jade-dim));width:0;transition:width 1.4s ease}
+  .pipe-rail.on .fill{width:100%}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;z-index:2}
+  .step{text-align:left}
+  .step .node{width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--jade);margin:32px 0 0;position:relative}
+  .step .node::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--jade);opacity:0;transition:.4s}
+  .step.lit .node::after{opacity:1}
+  .step .sn{font-family:var(--mono);font-size:.68rem;color:var(--gold);letter-spacing:.1em}
+  .step h4{font-size:1.14rem;font-weight:600;margin:16px 0 8px}
+  .step p{font-size:.88rem;color:var(--muted)}
+
+  /* ── COVERAGE ── */
+  .cov-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+  .cov-copy h2{font-size:clamp(1.8rem,3.4vw,2.5rem);margin:18px 0 18px;font-weight:600;letter-spacing:-.02em}
+  .cov-copy p{color:var(--text-2);font-size:1.02rem;max-width:420px;margin-bottom:20px}
+  .cov-tags{display:flex;gap:10px;flex-wrap:wrap}
+  .cov-panel{background:var(--panel);border:1px solid var(--line-2);border-radius:10px;overflow:hidden}
+  .cov-panel .ph{padding:14px 18px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-2);display:flex;align-items:center;gap:10px}
+  .cov-panel .ph .sig{width:7px;height:7px;border-radius:50%;background:var(--jade);box-shadow:0 0 8px var(--jade)}
+  .crow{display:grid;grid-template-columns:20px 1fr auto auto;gap:14px;align-items:center;padding:13px 18px;border-top:1px solid var(--line);transition:.25s}
+  .crow:hover{background:rgba(111,183,169,.04)}
+  .crow .dot{width:8px;height:8px;border-radius:50%;background:var(--jade)}
+  .crow .en{font-weight:600;font-size:.96rem}
+  .crow .cn{font-family:var(--cn);color:var(--muted);font-size:.9rem}
+  .crow .co{font-family:var(--mono);font-size:.68rem;color:var(--muted);letter-spacing:.05em}
+
+  /* ── FOUNDER ── */
+  .founder-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+  .founder-card{background:var(--panel);border:1px solid var(--line-2);border-radius:10px;padding:34px;position:relative;overflow:hidden}
+  .founder-card .glow{position:absolute;bottom:-40px;right:-40px;width:160px;height:160px;background:radial-gradient(circle,var(--jade-glow),transparent 70%);pointer-events:none}
+  .avatar{width:76px;height:76px;border-radius:10px;background:var(--bg-3);border:1px solid var(--jade-dim);display:grid;place-items:center;font-family:var(--grotesk);font-weight:700;font-size:1.5rem;color:var(--jade);position:relative}
+  .founder-card .nm{font-family:var(--grotesk);font-size:1.5rem;font-weight:600;margin:22px 0 5px}
+  .founder-card .role{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+  .founder-copy h2{font-size:clamp(1.8rem,3.4vw,2.5rem);margin:18px 0 20px;font-weight:600;letter-spacing:-.02em}
+  .founder-copy p{color:var(--text-2);margin-bottom:15px;font-size:1.0rem}
+  .exp-tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
+
+  /* ── CONTACT ── */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .contact-copy h2{font-size:clamp(1.9rem,3.6vw,2.7rem);margin:18px 0 18px;font-weight:600;letter-spacing:-.025em}
+  .contact-copy p{color:var(--muted);font-size:1.04rem;max-width:430px}
+  .clist{margin-top:32px}
+  .cline{display:flex;align-items:center;gap:18px;padding:18px 0;border-top:1px solid var(--line);transition:.25s}
+  .cline:hover{padding-left:8px}
+  .cline .ic{width:42px;height:42px;border-radius:8px;background:var(--panel);border:1px solid var(--line-2);display:grid;place-items:center;color:var(--jade);flex-shrink:0;transition:.25s}
+  .cline:hover .ic{background:var(--jade);color:var(--bg);box-shadow:0 0 24px var(--jade-glow)}
+  .cline small{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .cline b{font-weight:600;font-size:1rem;font-family:var(--mono)}
+  .contact-panel{background:var(--panel);border:1px solid var(--line-2);border-radius:10px;padding:40px 36px;position:relative;overflow:hidden}
+  .contact-panel .glow{position:absolute;top:-50px;left:-40px;width:200px;height:200px;background:radial-gradient(circle,var(--jade-glow),transparent 70%);pointer-events:none}
+  .contact-panel .mk{font-family:var(--cn);font-weight:700;font-size:1.5rem;color:var(--jade);position:relative;margin-bottom:14px}
+  .contact-panel h3{font-size:1.6rem;font-weight:600;margin-bottom:12px;position:relative}
+  .contact-panel p{color:var(--text-2);margin-bottom:26px;position:relative;font-size:.98rem}
+  .panel-meta{position:relative;margin-top:26px;padding-top:22px;border-top:1px solid var(--line);font-family:var(--mono);font-size:.76rem;color:var(--muted);letter-spacing:.04em}
+  .panel-meta b{color:var(--jade)}
+
+  /* ── FOOTER ── */
+  footer{background:var(--bg-3);border-top:1px solid var(--line);padding:56px 0 36px}
+  .foot-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
+  .foot-brand{max-width:320px}
+  .foot-brand p{font-size:.88rem;color:var(--muted);margin-top:18px}
+  .foot-links{display:flex;gap:54px;flex-wrap:wrap}
+  .foot-col h5{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--jade);margin-bottom:16px}
+  .foot-col a{display:block;color:var(--text-2);font-size:.88rem;margin-bottom:10px;transition:.25s}
+  .foot-col a:hover{color:var(--jade)}
+  .foot-bottom{margin-top:44px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-family:var(--mono);font-size:.72rem;color:var(--muted);letter-spacing:.04em}
+
+  /* ── REVEAL ── (gated on .js so content is visible without/if-JS-fails) */
+  .js .reveal{opacity:0;transform:translateY(22px);transition:.75s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:940px){
+    .hero-grid,.about-grid,.cov-grid,.founder-grid,.contact-grid{grid-template-columns:1fr;gap:44px}
+    .bento{grid-template-columns:repeat(2,1fr)}
+    .mod.feature,.mod.tall{grid-column:auto;grid-row:auto}
+    .clients-grid,.svc-grid{grid-template-columns:repeat(2,1fr)}
+    .pcards{grid-template-columns:1fr}
+    .telemetry .wrap{grid-template-columns:repeat(2,1fr)}
+    .tcell:nth-child(2){border-right:none}
+    .steps{grid-template-columns:repeat(2,1fr);gap:36px 24px}
+    .pipe-rail{display:none}
+    nav.links a:not(.btn){display:none}
+    nav.links a.btn{display:inline-flex}
+  }
+  @media(max-width:560px){
+    .wrap{padding:0 22px}
+    section{padding:74px 0}
+    .hero{padding:120px 0 70px}
+    .bento,.clients-grid,.svc-grid,.telemetry .wrap,.steps{grid-template-columns:1fr}
+    .tcell{border-right:none}
+    .hero-cta{flex-direction:column}
+    .hero-cta .btn{justify-content:center}
+    .console-read{grid-template-columns:1fr}
+    .console-read .cell{border-right:none;border-bottom:1px solid var(--line)}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{scroll-behavior:auto}
+    .ticker{animation:none}
+    .pulse-dot,.console-head .sig,.sys-panel .sig,.cov-panel .sig{animation:none!important}
+    .reveal{opacity:1;transform:none;transition:none}
+    .lk{animation:none;stroke-dashoffset:0}
+    .node-appear{animation:none;opacity:1}
+    .ring.a{animation:none;opacity:0}
+    .pipe-rail .fill{transition:none}
+    .jline{opacity:1!important;transform:none!important;transition:none}
+  }
+
+  /* ── CHINA DECODED ── */
+  .decoded-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .dcard{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:26px;position:relative;overflow:hidden;transition:.35s cubic-bezier(.2,.7,.2,1)}
+  .dcard:hover{border-color:var(--jade-dim);background:var(--bg-2);transform:translateY(-4px)}
+  .dcard .dq{font-family:var(--grotesk);font-size:1.1rem;font-weight:500;line-height:1.38;color:var(--text);margin-bottom:16px}
+  .dcard .dl{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--jade)}
+  .dcard .idx{position:absolute;right:18px;top:15px;font-family:var(--mono);font-size:.6rem;color:var(--muted)}
+
+  /* ── DESIGNED JOURNEY ── */
+  .journey{background:var(--bg-3);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .jrn-panel{background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line-2);border-radius:12px;overflow:hidden;box-shadow:0 40px 90px -50px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,255,255,.04)}
+  .jrn-head{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-2)}
+  .jrn-head .sig{width:7px;height:7px;border-radius:50%;background:var(--jade);box-shadow:0 0 10px var(--jade)}
+  .jrn-head .r{margin-left:auto;color:var(--jade);display:flex;align-items:center;gap:6px}
+  .jline{display:grid;grid-template-columns:104px 1fr auto;gap:18px;align-items:center;padding:20px 22px;border-top:1px solid var(--line)}
+  .jline:first-of-type{border-top:none}
+  .js .jline{opacity:.3;transform:translateX(-8px);transition:.6s cubic-bezier(.2,.7,.2,1)}
+  .jline.lit{opacity:1;transform:none}
+  .jline .t{font-family:var(--mono);font-size:.8rem;color:var(--gold)}
+  .jline .d b{font-family:var(--grotesk);font-weight:600;font-size:1.02rem;display:block;margin-bottom:3px}
+  .jline .d span{font-size:.88rem;color:var(--muted)}
+  .jline .badge{font-family:var(--mono);font-size:.6rem;color:var(--jade);border:1px solid var(--jade-dim);border-radius:3px;padding:4px 8px;white-space:nowrap}
+  .jline.win .t{color:var(--jade)}.jline.win .d b{color:var(--jade-bright)}
+  .jrn-foot{padding:17px 22px;border-top:1px solid var(--line-2);font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;color:var(--text-2);display:flex;align-items:center;gap:10px}
+  .jrn-foot b{color:var(--gold)}
+  .jrn-lead{max-width:540px}
+
+  /* ── SOCIALS ── */
+  .socials{display:flex;gap:12px;margin-top:24px}
+  .socials a{width:42px;height:42px;border-radius:8px;background:var(--panel);border:1px solid var(--line-2);display:grid;place-items:center;color:var(--text-2);transition:.25s}
+  .socials a:hover{color:var(--jade);border-color:var(--jade);box-shadow:0 0 24px var(--jade-glow);transform:translateY(-2px)}
+
+  @media(max-width:940px){.decoded-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.decoded-grid{grid-template-columns:1fr}.jline{grid-template-columns:84px 1fr;gap:12px}.jline .badge{display:none}}
+
+  .guide-hero{padding:140px 0 40px;position:relative}
+  .guide-hero h1{font-size:clamp(2.4rem,5vw,3.8rem);font-weight:600;letter-spacing:-.03em;line-height:1.03;margin:22px 0 20px}
+  .guide-hero h1 .hl{color:var(--jade)}
+  .guide-hero .lead{font-size:1.12rem;color:var(--text-2);max-width:640px}
+  .hubcn{font-family:var(--cn);color:var(--jade);font-weight:500;font-size:.92rem;margin-left:8px}
+  .backlink{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+  .backlink:hover{color:var(--jade)}
+</style>
+</head>
+<body>
+<div class="statusbar" aria-hidden="true">
+  <div class="ticker">
+    <span><i class="pulse-dot"></i> CHINA GUIDE</span><span>WEST <b>⇄</b> CHINA</span><span>VISA-FREE: <b class="ok">55+ COUNTRIES</b></span><span>HSR <b>40,000+ KM</b></span><span>DESK: TEL AVIV</span><span><i class="pulse-dot"></i> WE BUILD BUSINESS WITH PLEASURE</span>
+    <span><i class="pulse-dot"></i> CHINA GUIDE</span><span>WEST <b>⇄</b> CHINA</span><span>VISA-FREE: <b class="ok">55+ COUNTRIES</b></span><span>HSR <b>40,000+ KM</b></span><span>DESK: TEL AVIV</span><span><i class="pulse-dot"></i> WE BUILD BUSINESS WITH PLEASURE</span>
+  </div>
+</div>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="index.html" class="logo" aria-label="Sino Business Partner home">
+      <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="17" cy="18" r="7" fill="#6FB7A9"/><circle cx="31" cy="20" r="8.5" fill="none" stroke="#CBB183" stroke-width="2"/><circle cx="22" cy="32" r="9.5" fill="none" stroke="#6FB7A9" stroke-width="2"/></svg>
+      <span class="logo-txt">SINO BUSINESS PARTNER<small>CHINA · WEST</small></span>
+    </a>
+    <nav class="links">
+      <a href="#hubs">Hubs</a>
+      <a href="#fairs">Trade Fairs</a>
+      <a href="#practical">Essentials</a>
+      <a href="#etiquette">Etiquette</a>
+      <a href="index.html#contact" class="btn btn-jade">Plan Your Trip →</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="guide-hero" id="top">
+  <div class="gridbg"></div><div class="glowtop" style="position:absolute;top:-8%;right:-4%;width:760px;height:560px;background:radial-gradient(circle at 60% 40%,var(--jade-glow),transparent 62%);opacity:.5;filter:blur(10px);pointer-events:none"></div>
+  <div class="wrap" style="position:relative;z-index:2">
+    <span class="kicker">China Guide · For Business Travelers</span>
+    <h1>China, for people who <span class="hl">mean business.</span></h1>
+    <p class="lead">A working briefing for anyone planning a trip to China — the business hubs, the trade fairs, the practicalities, the etiquette, and the experiences worth building in. Prepared by Sino Business Partner, so you arrive prepared.</p>
+    <div class="hero-cta" style="margin-top:26px"><a href="index.html#contact" class="btn btn-jade">Plan Your China Trip →</a><a href="index.html" class="btn btn-ghost">← Back to Home</a></div>
+  </div>
+</section>
+
+<!-- WHY CHINA telemetry -->
+<div class="telemetry">
+  <div class="wrap">
+    <div class="tcell reveal"><div class="n" data-count="60">0</div><div class="l">UNESCO World Heritage sites — the most in Asia</div></div>
+    <div class="tcell reveal"><div class="n">#2</div><div class="l">World's second-largest economy &amp; a top global trade hub</div></div>
+    <div class="tcell reveal"><div class="n" data-count="40000" data-suffix="+ km">0 km</div><div class="l">High-speed rail across China, at up to 350 km/h</div></div>
+    <div class="tcell reveal"><div class="n" data-count="55" data-suffix="+">0</div><div class="l">Countries with visa-free entry or transit to China now</div></div>
+  </div>
+</div>
+
+<!-- HUBS -->
+<section id="hubs" class="divide">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="kicker gold">// Where the Business Is</span><h2>China's business &amp; trade hubs.</h2><p>Each city is a different reason to travel. Knowing which one you need is half the trip.</p></div>
+    <div class="svc-grid">
+      <div class="svc reveal"><div class="sh"><span class="sx">HUB / 01</span></div><h4>Beijing <span class="hubcn">北京</span></h4><p>The capital — government &amp; policy, corporate headquarters, state-owned enterprises, and world-class culture.</p><div class="spec">POLICY · HQ · CULTURE</div></div>
+      <div class="svc reveal"><div class="sh"><span class="sx">HUB / 02</span></div><h4>Shanghai <span class="hubcn">上海</span></h4><p>Finance and international business; flagship exhibitions and the country's most global boardrooms.</p><div class="spec">FINANCE · EXPOS</div></div>
+      <div class="svc reveal"><div class="sh"><span class="sx">HUB / 03</span></div><h4>Shenzhen <span class="hubcn">深圳</span></h4><p>China's hardware capital — electronics, manufacturing and the fastest product-to-market ecosystem on earth.</p><div class="spec">TECH · ELECTRONICS</div></div>
+      <div class="svc reveal"><div class="sh"><span class="sx">HUB / 04</span></div><h4>Guangzhou <span class="hubcn">广州</span></h4><p>The trade capital of the south and home of the Canton Fair — the gateway for importers and buyers.</p><div class="spec">TRADE · CANTON FAIR</div></div>
+      <div class="svc reveal"><div class="sh"><span class="sx">HUB / 05</span></div><h4>Yiwu <span class="hubcn">义乌</span></h4><p>The world's largest wholesale market for small commodities — millions of products under one roof, year-round.</p><div class="spec">WHOLESALE · SOURCING</div></div>
+      <div class="svc reveal"><div class="sh"><span class="sx">HUB / 06</span></div><h4>Hangzhou <span class="hubcn">杭州</span></h4><p>E-commerce and the digital economy (Alibaba's home) — and, on the West Lake, one of China's most beautiful cities.</p><div class="spec">E-COMMERCE · BLEISURE</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAIRS -->
+<section id="fairs" class="divide">
+  <div class="gridbg" style="opacity:.5"></div>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="kicker">// Trade Fairs &amp; Exhibitions</span><h2>Where deals are done at scale.</h2><p>We handle registration, scheduling, interpreters and follow-ups — so a fair becomes a pipeline, not a blur.</p></div>
+    <div class="svc-grid">
+      <div class="svc reveal"><div class="sh"><span class="sx">FAIR / 01</span></div><h4>Canton Fair <span class="hubcn">广交会</span></h4><p>China's largest import &amp; export fair, in Guangzhou each spring and autumn — run in three phases by product category.</p><div class="spec">SPRING · AUTUMN · 3 PHASES</div></div>
+      <div class="svc reveal"><div class="sh"><span class="sx">FAIR / 02</span></div><h4>Yiwu Market <span class="hubcn">义乌市场</span></h4><p>Not an event but a permanent market — year-round sourcing across virtually every small-commodity category.</p><div class="spec">YEAR-ROUND · SOURCING</div></div>
+      <div class="svc reveal"><div class="sh"><span class="sx">FAIR / 03</span></div><h4>Industry Expos</h4><p>Sector shows across Shanghai, Beijing and Shenzhen — electronics, machinery, textiles, medical and more. We map the right one to your goal.</p><div class="spec">ELECTRONICS · MACHINERY · +</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRACTICAL -->
+<section id="practical" class="divide">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="kicker gold">// Plan Your Trip</span><h2>Practical essentials.</h2><p>The things that quietly make or break a China trip. Current for 2026 — but rules move, so we confirm yours before you book.</p></div>
+    <div class="svc-grid">
+      <div class="svc reveal"><div class="sh"><span class="sx">01</span></div><h4>Visa &amp; Entry</h4><p>Depends on your passport. Most EU &amp; UK travelers: 30-day visa-free. US, Canada &amp; Australia: 240-hour (10-day) visa-free transit, or a multi-entry visa for standard trips. Israeli passports: a China visa, with long-validity multi-entry facilitation available.</p><div class="spec">VARIES BY PASSPORT</div></div>
+      <div class="svc reveal"><div class="sh"><span class="sx">02</span></div><h4>Best Time to Visit</h4><p>Spring (Mar–May) and autumn (Sep–Nov) are ideal — mild weather, clear skies. Avoid the Golden Week holidays around the first days of May and October, when everything is packed.</p><div class="spec">SPRING · AUTUMN</div></div>
+      <div class="svc reveal"><div class="sh"><span class="sx">03</span></div><h4>Getting Around</h4><p>The world's largest high-speed-rail network (40,000+ km, up to 350 km/h) links every hub, alongside world-class airports and city metros. City-to-city in hours, not a day.</p><div class="spec">HIGH-SPEED RAIL · AIR</div></div>
+      <div class="svc reveal"><div class="sh"><span class="sx">04</span></div><h4>Money &amp; Payments</h4><p>China is effectively cashless. Foreign Visa/Mastercard now link to both Alipay and WeChat Pay (quick passport verification). Set up both apps before you fly, and keep some RMB cash for small vendors.</p><div class="spec">ALIPAY · WECHAT PAY</div></div>
+      <div class="svc reveal"><div class="sh"><span class="sx">05</span></div><h4>Connectivity</h4><p>Some Western apps and sites are restricted. Bring an international eSIM/roaming plan or a reputable VPN, and install WeChat before you arrive — on the ground, it's essential for messaging, payments and more.</p><div class="spec">ESIM · VPN · WECHAT</div></div>
+      <div class="svc reveal"><div class="sh"><span class="sx">06</span></div><h4>Language &amp; Safety</h4><p>Mandarin is the language; English signage is common at airports, stations and hotels, and translation apps fill the gaps. China is among the safest destinations for travelers. Emergency: 110 police · 120 medical · 119 fire.</p><div class="spec">SAFE · ENGLISH SIGNAGE</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ETIQUETTE / DECODED -->
+<section id="etiquette" class="divide">
+  <div class="gridbg" style="opacity:.5"></div>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="kicker">// Doing Business, Decoded</span><h2>The unwritten rules that decide the deal.</h2><p>Most of what matters in a China meeting isn't in the agenda. We prepare you for the signals before you're in the room.</p></div>
+    <div class="decoded-grid">
+      <div class="dcard reveal"><span class="idx">01</span><div class="dq">"The dinner is the meeting. The deal is sealed somewhere around the third toast."</div><div class="dl">The Banquet</div></div>
+      <div class="dcard reveal"><span class="idx">02</span><div class="dq">"'Yes' often means 'I hear you' — not 'I agree.' Confirm the details later, in writing, warmly."</div><div class="dl">Reading the Room</div></div>
+      <div class="dcard reveal"><span class="idx">03</span><div class="dq">"The contract is the start of trust, not the proof of it. The relationship is maintained after the signature."</div><div class="dl">Guanxi · 关系</div></div>
+      <div class="dcard reveal"><span class="idx">04</span><div class="dq">"The most senior person often says the least. Watch who they defer to."</div><div class="dl">Hierarchy</div></div>
+      <div class="dcard reveal"><span class="idx">05</span><div class="dq">"Business cards are offered and received with both hands. Study it for a moment before you put it away."</div><div class="dl">The Card</div></div>
+      <div class="dcard reveal"><span class="idx">06</span><div class="dq">"Small gestures preserve 'face.' Arrive early, seat by rank, and avoid gifts like clocks."</div><div class="dl">Face &amp; Gifts</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BLEISURE -->
+<section id="experiences" class="divide">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="kicker gold">// Beyond the Boardroom</span><h2>The China worth staying an extra day for.</h2><p>The best trips give you something to remember, not just something to report. A few we build in.</p></div>
+    <div class="svc-grid">
+      <div class="svc reveal"><div class="sh"><span class="sx">EXP / 01</span></div><h4>Beijing</h4><p>The Great Wall at sunrise, the Forbidden City, and a walk through the old hutong lanes.</p><div class="spec">GREAT WALL · FORBIDDEN CITY</div></div>
+      <div class="svc reveal"><div class="sh"><span class="sx">EXP / 02</span></div><h4>Shanghai</h4><p>The Bund skyline at night, Yu Garden, and a cruise on the Huangpu River.</p><div class="spec">THE BUND · YU GARDEN</div></div>
+      <div class="svc reveal"><div class="sh"><span class="sx">EXP / 03</span></div><h4>Xi'an</h4><p>The Terracotta Warriors and a cycle atop the ancient city wall — the start of the Silk Road.</p><div class="spec">TERRACOTTA WARRIORS</div></div>
+      <div class="svc reveal"><div class="sh"><span class="sx">EXP / 04</span></div><h4>Chengdu</h4><p>Giant pandas up close, and the food capital of China — Sichuan flavor at its source.</p><div class="spec">PANDAS · CUISINE</div></div>
+      <div class="svc reveal"><div class="sh"><span class="sx">EXP / 05</span></div><h4>Zhangjiajie</h4><p>The towering sandstone pillars that inspired the floating mountains of "Avatar."</p><div class="spec">AVATAR PEAKS</div></div>
+      <div class="svc reveal"><div class="sh"><span class="sx">EXP / 06</span></div><h4>Guilin &amp; Hangzhou</h4><p>The Li River karst landscape near Guilin, and the serene West Lake at Hangzhou.</p><div class="spec">LI RIVER · WEST LAKE</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="divide">
+  <div class="gridbg" style="opacity:.5"></div>
+  <div class="wrap">
+    <div class="contact-panel reveal" style="max-width:760px;margin:0 auto;text-align:center">
+      <div class="glow"></div>
+      <div class="mk" style="position:relative">规划</div>
+      <h3 style="font-size:1.8rem">Turn this into your trip.</h3>
+      <p style="max-width:520px;margin:0 auto 26px">You've read the briefing. Now let us design the journey around your goal — meetings, logistics, the banquet and the free morning included.</p>
+      <a href="index.html#contact" class="btn btn-jade">Plan Your China Trip →</a>
+      <div class="panel-meta" style="text-align:center">SINO BUSINESS PARTNER · WE BUILD BUSINESS WITH PLEASURE · IL · EU · US</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="index.html" class="logo"><svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="17" cy="18" r="7" fill="#6FB7A9"/><circle cx="31" cy="20" r="8.5" fill="none" stroke="#CBB183" stroke-width="2"/><circle cx="22" cy="32" r="9.5" fill="none" stroke="#6FB7A9" stroke-width="2"/></svg><span class="logo-txt">SINO BUSINESS PARTNER<small>CHINA · WEST</small></span></a>
+        <p>A technology-driven business-travel design desk, connecting companies across Israel, Europe and the US with trusted service partners in China. We Build Business with Pleasure.</p>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col"><h5>Guide</h5><a href="#hubs">Business Hubs</a><a href="#fairs">Trade Fairs</a><a href="#practical">Essentials</a><a href="#etiquette">Etiquette</a><a href="#experiences">Experiences</a></div>
+        <div class="foot-col"><h5>Contact</h5><a href="mailto:info@sinobusinesspartner.com">info@sinobusinesspartner.com</a><a href="tel:+972549796009">+972-54-9796009</a><a href="https://wa.me/972549796009" target="_blank" rel="noopener">WhatsApp</a><a href="index.html#contact">WeChat · sinobusinesspartner</a></div>
+        <div class="foot-col"><h5>Follow</h5><a href="https://instagram.com/sinobusinesspartner" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/company/sinobusinesspartner" target="_blank" rel="noopener">LinkedIn</a><a href="https://facebook.com/sinobusinesspartner" target="_blank" rel="noopener">Facebook</a></div>
+      </div>
+    </div>
+    <div class="foot-bottom"><span>&copy; 2026 SINO BUSINESS PARTNER · ALL RIGHTS RESERVED</span><span>SINOBUSINESSPARTNER.COM · TEL AVIV, ISRAEL</span></div>
+  </div>
+</footer>
+
+<script>
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.documentElement.classList.add('js');
+  const nav=document.getElementById('nav');
+  if(nav) addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>30),{passive:true});
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4*70)+'ms';io.observe(el)});
+  function setF(el){const t=parseFloat(el.dataset.count),pre=el.dataset.prefix||'',suf=el.dataset.suffix||'',dec=(t%1!==0)?1:0;el.textContent=pre+t.toLocaleString(undefined,{minimumFractionDigits:dec,maximumFractionDigits:dec})+suf;}
+  function countUp(el){const t=parseFloat(el.dataset.count);if(reduce){setF(el);return;}const pre=el.dataset.prefix||'',suf=el.dataset.suffix||'',dec=(t%1!==0)?1:0;let t0=null;function step(ts){if(!t0)t0=ts;const p=Math.min((ts-t0)/1400,1),e=1-Math.pow(1-p,3);el.textContent=pre+(t*e).toLocaleString(undefined,{minimumFractionDigits:dec,maximumFractionDigits:dec})+suf;if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);}
+  const cio=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){countUp(e.target);cio.unobserve(e.target)}}),{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+  addEventListener('load',()=>setTimeout(()=>{if(!document.querySelector('.reveal.in')){document.querySelectorAll('.reveal').forEach(e=>e.classList.add('in'));document.querySelectorAll('[data-count]').forEach(setF);}},900));
+</script>
+</body>
+</html>

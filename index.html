@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sino Business Partner — Business Travel to China, Designed | West ⇄ China</title>
+<meta name="description" content="Sino Business Partner designs high-touch business travel and real, on-the-ground connections in China for companies and travelers across Israel, Europe and the United States. We Build Business with Pleasure.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%230E1413'/%3E%3Ccircle cx='36' cy='38' r='13' fill='%236FB7A9'/%3E%3Ccircle cx='62' cy='42' r='16' fill='none' stroke='%23CBB183' stroke-width='3'/%3E%3Ccircle cx='45' cy='64' r='18' fill='none' stroke='%236FB7A9' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0E1413;
+    --bg-2:#121A18;
+    --bg-3:#0A0F0E;
+    --panel:#141D1B;
+    --jade:#6FB7A9;
+    --jade-bright:#8FD6C8;
+    --jade-dim:#3E6B63;
+    --jade-glow:rgba(111,183,169,.32);
+    --gold:#CBB183;
+    --gold-2:#B2955F;
+    --text:#E8EFEC;
+    --text-2:#B9C6C1;
+    --muted:#7F918B;
+    --line:rgba(255,255,255,.07);
+    --line-2:rgba(255,255,255,.13);
+    --grotesk:'Space Grotesk',-apple-system,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
+    --body:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    --cn:'Noto Sans SC',var(--body);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3,h4{font-family:var(--grotesk);font-weight:600;line-height:1.05;letter-spacing:-.02em}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--jade);color:var(--bg)}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 40px}
+
+  /* grid-line texture */
+  .gridbg{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(120% 90% at 50% 0%,#000 40%,transparent 78%);-webkit-mask-image:radial-gradient(120% 90% at 50% 0%,#000 40%,transparent 78%)}
+
+  /* ── MONO LABEL ── */
+  .kicker{font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--jade);display:inline-flex;align-items:center;gap:10px}
+  .kicker::before{content:"";width:16px;height:1px;background:var(--jade)}
+  .kicker.gold{color:var(--gold)}.kicker.gold::before{background:var(--gold)}
+  .tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;color:var(--text-2);border:1px solid var(--line-2);border-radius:3px;padding:5px 10px;display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+
+  /* ── STATUS BAR ── */
+  .statusbar{position:fixed;top:0;left:0;right:0;height:30px;z-index:70;background:var(--bg-3);border-bottom:1px solid var(--line);display:flex;align-items:center;overflow:hidden;font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;color:var(--muted)}
+  .ticker{display:flex;gap:34px;white-space:nowrap;padding-left:34px;animation:ticker 34s linear infinite;will-change:transform}
+  .ticker span{display:inline-flex;align-items:center;gap:10px}
+  .ticker b{color:var(--text-2);font-weight:500}
+  .ticker .ok{color:var(--jade)}
+  .pulse-dot{width:6px;height:6px;border-radius:50%;background:var(--jade);box-shadow:0 0 0 0 var(--jade-glow);animation:beacon 2.4s ease-out infinite}
+  @keyframes ticker{to{transform:translateX(-50%)}}
+  @keyframes beacon{0%{box-shadow:0 0 0 0 var(--jade-glow)}70%{box-shadow:0 0 0 7px transparent}100%{box-shadow:0 0 0 0 transparent}}
+
+  /* ── NAV ── */
+  header.nav{position:fixed;top:30px;left:0;right:0;z-index:60;transition:.4s cubic-bezier(.2,.7,.2,1)}
+  header.nav.scrolled{background:rgba(10,15,14,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .logo{display:flex;align-items:center;gap:12px}
+  .logo svg{width:34px;height:34px;flex-shrink:0}
+  .logo-txt{font-family:var(--grotesk);font-weight:700;font-size:.98rem;letter-spacing:.02em;line-height:1}
+  .logo-txt small{display:block;font-family:var(--mono);font-size:.56rem;font-weight:400;letter-spacing:.3em;color:var(--jade);margin-top:4px}
+  nav.links{display:flex;align-items:center;gap:34px}
+  nav.links a:not(.btn){font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;color:var(--text-2);text-transform:uppercase;position:relative;transition:.25s}
+  nav.links a:not(.btn):hover{color:var(--text)}
+  nav.links a:not(.btn)::after{content:"";position:absolute;left:0;bottom:-7px;height:1px;width:0;background:var(--jade);transition:.3s}
+  nav.links a:not(.btn):hover::after{width:100%}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-weight:500;font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;padding:12px 20px;border-radius:4px;cursor:pointer;border:1px solid transparent;transition:.3s cubic-bezier(.2,.7,.2,1)}
+  .btn-jade{background:var(--jade);color:#06100E;font-weight:600}
+  .btn-jade:hover{background:var(--jade-bright);box-shadow:0 0 30px var(--jade-glow);transform:translateY(-1px)}
+  .btn-ghost{border-color:var(--line-2);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--jade);color:var(--jade)}
+
+  /* ── HERO ── */
+  .hero{position:relative;padding:150px 0 90px;overflow:hidden}
+  .hero .glowtop{position:absolute;top:-10%;right:-5%;width:820px;height:620px;pointer-events:none;background:radial-gradient(circle at 60% 40%,var(--jade-glow),transparent 62%);opacity:.55;filter:blur(10px)}
+  .hero .wrap{position:relative;z-index:2}
+  .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:56px;align-items:center}
+  .hero h1{font-size:clamp(2.5rem,5.1vw,4.1rem);font-weight:600;margin:24px 0 22px;letter-spacing:-.03em;line-height:1.02}
+  .hero h1 .hl{color:var(--jade)}
+  .hero h1 .cn{font-family:var(--cn);font-weight:700}
+  .hero .lead{font-size:1.1rem;color:var(--text-2);max-width:520px;margin-bottom:16px}
+  .hero .lead b{color:var(--text);font-weight:600}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
+  .hero-rail{display:flex;gap:26px;margin-top:34px;padding-top:22px;border-top:1px solid var(--line)}
+  .hero-rail div{font-family:var(--mono)}
+  .hero-rail .n{font-size:1.02rem;color:var(--jade);font-weight:500}
+  .hero-rail .l{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+
+  /* ── CONSOLE (signature) ── */
+  .console{position:relative;background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line-2);border-radius:10px;overflow:hidden;box-shadow:0 40px 90px -40px rgba(0,0,0,.8), inset 0 1px 0 rgba(255,255,255,.04)}
+  .console-head{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;color:var(--text-2);text-transform:uppercase}
+  .console-head .sig{width:7px;height:7px;border-radius:50%;background:var(--jade);box-shadow:0 0 10px var(--jade)}
+  .console-head .r{margin-left:auto;color:var(--jade);display:flex;align-items:center;gap:6px}
+  .console-head .dots{display:flex;gap:5px}
+  .console-head .dots i{width:7px;height:7px;border-radius:50%;background:var(--line-2);display:block}
+  .schematic{display:block;width:100%;height:auto;background:
+     radial-gradient(circle at 20% 30%,rgba(111,183,169,.05),transparent 40%),
+     linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+     linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+     background-size:auto,26px 26px,26px 26px}
+  .console-read{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+  .console-read .cell{padding:14px 16px;border-right:1px solid var(--line)}
+  .console-read .cell:last-child{border-right:none}
+  .console-read .k{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .console-read .v{font-family:var(--mono);font-size:.98rem;color:var(--text);margin-top:6px;display:flex;align-items:center;gap:7px}
+  .console-read .v .g{color:var(--jade)}
+  .console-read .v .go{color:var(--gold)}
+
+  /* svg schematic elements */
+  .lk{fill:none;stroke:var(--jade-dim);stroke-width:1.4;stroke-dasharray:520;stroke-dashoffset:520;animation:draw 1.5s cubic-bezier(.4,.1,.2,1) forwards}
+  .grid-svc{stroke:rgba(255,255,255,.05);stroke-width:1}
+  .node-o{fill:var(--bg-3);stroke:var(--jade);stroke-width:1.4}
+  .node-d{fill:var(--jade);opacity:0}
+  .node-appear{animation:pop .5s cubic-bezier(.2,.7,.2,1) forwards}
+  .ring{fill:none;stroke:var(--jade);opacity:.4}
+  .ring.a{animation:radar 3s ease-out infinite}
+  .lbl{font-family:'IBM Plex Mono',monospace;fill:var(--text-2)}
+  .lbl.o{fill:var(--jade)}
+  .lbl.co{fill:var(--muted);font-size:8px}
+  .pulse{fill:var(--jade-bright)}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  @keyframes pop{from{opacity:0;transform:scale(.3)}to{opacity:1;transform:scale(1)}}
+  @keyframes radar{0%{r:6;opacity:.5}100%{r:22;opacity:0}}
+
+  /* ── SECTIONS ── */
+  section{position:relative;padding:104px 0}
+  .sec-head{max-width:720px;margin-bottom:56px}
+  .sec-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem);margin:18px 0 16px;font-weight:600;letter-spacing:-.025em}
+  .sec-head p{color:var(--muted);font-size:1.06rem}
+  .divide{border-top:1px solid var(--line)}
+
+  /* ── TELEMETRY STRIP ── */
+  .telemetry{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-3)}
+  .telemetry .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+  .tcell{padding:34px 26px;border-right:1px solid var(--line);position:relative}
+  .tcell:last-child{border-right:none}
+  .tcell .n{font-family:var(--mono);font-size:2.1rem;font-weight:500;color:var(--text);letter-spacing:-.01em;line-height:1}
+  .tcell .n .u{color:var(--jade)}
+  .tcell .l{font-size:.82rem;color:var(--muted);margin-top:12px;max-width:200px}
+  .tcell::before{content:"";position:absolute;top:34px;left:26px;width:14px;height:1px;background:var(--gold)}
+  .tcell .n{padding-top:14px}
+
+  /* ── ABOUT ── */
+  .about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+  .about-copy h2{font-size:clamp(1.9rem,3.6vw,2.7rem);margin:18px 0 20px;font-weight:600;letter-spacing:-.025em}
+  .about-copy p{color:var(--text-2);margin-bottom:16px;font-size:1.04rem}
+  .pull{border-left:2px solid var(--jade);padding:4px 0 4px 22px;margin:26px 0;font-family:var(--grotesk);font-size:1.22rem;color:var(--text);line-height:1.4;font-weight:500}
+  .sys-panel{background:var(--panel);border:1px solid var(--line-2);border-radius:10px;overflow:hidden}
+  .sys-panel .ph{display:flex;align-items:center;gap:10px;padding:14px 20px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-2)}
+  .sys-panel .ph .sig{width:7px;height:7px;border-radius:50%;background:var(--jade);box-shadow:0 0 10px var(--jade)}
+  .srow{display:flex;gap:16px;padding:22px 20px;border-top:1px solid var(--line)}
+  .srow:first-of-type{border-top:none}
+  .srow .ix{font-family:var(--mono);font-size:.72rem;color:var(--jade);padding-top:3px}
+  .srow b{display:block;font-family:var(--grotesk);font-weight:600;font-size:1rem;margin-bottom:5px}
+  .srow span{font-size:.9rem;color:var(--muted)}
+  .srow .chk{margin-left:auto;color:var(--jade);font-family:var(--mono);font-size:.66rem;align-self:center;border:1px solid var(--jade-dim);border-radius:3px;padding:3px 7px}
+
+  /* ── BENTO CAPABILITIES ── */
+  .bento{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:16px}
+  .mod{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:28px;position:relative;overflow:hidden;transition:.35s cubic-bezier(.2,.7,.2,1);display:flex;flex-direction:column}
+  .mod::after{content:"";position:absolute;inset:0;border-radius:10px;pointer-events:none;box-shadow:inset 0 0 0 1px transparent;transition:.35s}
+  .mod:hover{transform:translateY(-4px);border-color:transparent;background:var(--bg-2)}
+  .mod:hover::after{box-shadow:inset 0 0 0 1px var(--jade),0 0 40px -6px var(--jade-glow)}
+  .mod .mh{display:flex;align-items:center;justify-content:space-between;margin-bottom:auto}
+  .mod .idx{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;color:var(--muted)}
+  .mod .ic{width:40px;height:40px;border:1px solid var(--line-2);border-radius:7px;display:grid;place-items:center;color:var(--jade)}
+  .mod h4{font-family:var(--grotesk);font-size:1.18rem;font-weight:600;margin:30px 0 10px}
+  .mod p{font-size:.92rem;color:var(--muted)}
+  .mod.feature{grid-column:span 2}
+  .mod.tall{grid-row:span 2}
+  .mod.feature h4{font-size:1.4rem}
+  .mod .cn-mark{position:absolute;right:18px;bottom:10px;font-family:var(--cn);font-weight:700;font-size:4.2rem;color:rgba(111,183,169,.06);line-height:1;pointer-events:none}
+  .mod .metric{font-family:var(--mono);font-size:.7rem;color:var(--jade);margin-top:16px;letter-spacing:.06em}
+
+  /* ── SERVICES ── */
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .svc{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:28px;position:relative;overflow:hidden;transition:.35s cubic-bezier(.2,.7,.2,1);display:flex;flex-direction:column}
+  .svc::after{content:"";position:absolute;inset:0;border-radius:10px;pointer-events:none;box-shadow:inset 0 0 0 1px transparent;transition:.35s}
+  .svc:hover{transform:translateY(-4px);border-color:transparent;background:var(--bg-2)}
+  .svc:hover::after{box-shadow:inset 0 0 0 1px var(--jade),0 0 40px -6px var(--jade-glow)}
+  .svc .sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+  .svc .ic{width:44px;height:44px;border:1px solid var(--line-2);border-radius:8px;display:grid;place-items:center;color:var(--jade)}
+  .svc .sx{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;color:var(--muted)}
+  .svc h4{font-family:var(--grotesk);font-size:1.16rem;font-weight:600;margin-bottom:10px}
+  .svc p{font-size:.9rem;color:var(--muted);margin-bottom:auto}
+  .svc .spec{font-family:var(--mono);font-size:.64rem;color:var(--jade);letter-spacing:.05em;margin-top:20px;padding-top:14px;border-top:1px solid var(--line);display:flex;align-items:center;gap:8px}
+  .svc .spec::before{content:"◇";color:var(--gold)}
+
+  /* ── CLIENTS ── */
+  .clients-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .ccard{background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:26px 22px;transition:.35s;position:relative}
+  .ccard::before{content:"";position:absolute;top:0;left:22px;right:22px;height:2px;background:var(--jade);transform:scaleX(0);transform-origin:left;transition:.4s}
+  .ccard:hover{border-color:var(--line-2);transform:translateY(-4px)}
+  .ccard:hover::before{transform:scaleX(1)}
+  .ccard .ic{color:var(--jade);margin-bottom:16px}
+  .ccard h4{font-size:1.08rem;font-weight:600;margin-bottom:9px}
+  .ccard p{font-size:.86rem;color:var(--muted)}
+  .ccard .ct{margin-top:16px}
+  .client-note{margin-top:34px;font-family:var(--mono);font-size:.86rem;color:var(--jade);letter-spacing:.03em;display:flex;align-items:center;gap:12px}
+  .client-note::before{content:"//";color:var(--gold)}
+
+  /* ── PARTNERSHIP ── */
+  .pcards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .pcard{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:34px;position:relative;overflow:hidden;transition:.35s}
+  .pcard:hover{border-color:var(--jade-dim);background:var(--bg-2)}
+  .pcard .top{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+  .pcard .glyph{width:46px;height:46px;border-radius:8px;background:rgba(111,183,169,.09);border:1px solid var(--line-2);display:grid;place-items:center;font-family:var(--cn);font-weight:700;font-size:1.4rem;color:var(--jade)}
+  .pcard .pn{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;color:var(--muted)}
+  .pcard h4{font-size:1.24rem;font-weight:600;margin-bottom:10px}
+  .pcard p{color:var(--text-2);font-size:.95rem}
+
+  /* ── PROCESS PIPELINE ── */
+  .pipe{position:relative}
+  .pipe-rail{position:absolute;top:38px;left:6%;right:6%;height:1px;background:var(--line-2)}
+  .pipe-rail .fill{position:absolute;inset:0;background:linear-gradient(90deg,var(--jade),var(--jade-dim));width:0;transition:width 1.4s ease}
+  .pipe-rail.on .fill{width:100%}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;z-index:2}
+  .step{text-align:left}
+  .step .node{width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--jade);margin:32px 0 0;position:relative}
+  .step .node::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--jade);opacity:0;transition:.4s}
+  .step.lit .node::after{opacity:1}
+  .step .sn{font-family:var(--mono);font-size:.68rem;color:var(--gold);letter-spacing:.1em}
+  .step h4{font-size:1.14rem;font-weight:600;margin:16px 0 8px}
+  .step p{font-size:.88rem;color:var(--muted)}
+
+  /* ── COVERAGE ── */
+  .cov-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+  .cov-copy h2{font-size:clamp(1.8rem,3.4vw,2.5rem);margin:18px 0 18px;font-weight:600;letter-spacing:-.02em}
+  .cov-copy p{color:var(--text-2);font-size:1.02rem;max-width:420px;margin-bottom:20px}
+  .cov-tags{display:flex;gap:10px;flex-wrap:wrap}
+  .cov-panel{background:var(--panel);border:1px solid var(--line-2);border-radius:10px;overflow:hidden}
+  .cov-panel .ph{padding:14px 18px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-2);display:flex;align-items:center;gap:10px}
+  .cov-panel .ph .sig{width:7px;height:7px;border-radius:50%;background:var(--jade);box-shadow:0 0 8px var(--jade)}
+  .crow{display:grid;grid-template-columns:20px 1fr auto auto;gap:14px;align-items:center;padding:13px 18px;border-top:1px solid var(--line);transition:.25s}
+  .crow:hover{background:rgba(111,183,169,.04)}
+  .crow .dot{width:8px;height:8px;border-radius:50%;background:var(--jade)}
+  .crow .en{font-weight:600;font-size:.96rem}
+  .crow .cn{font-family:var(--cn);color:var(--muted);font-size:.9rem}
+  .crow .co{font-family:var(--mono);font-size:.68rem;color:var(--muted);letter-spacing:.05em}
+
+  /* ── FOUNDER ── */
+  .founder-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+  .founder-card{background:var(--panel);border:1px solid var(--line-2);border-radius:10px;padding:34px;position:relative;overflow:hidden}
+  .founder-card .glow{position:absolute;bottom:-40px;right:-40px;width:160px;height:160px;background:radial-gradient(circle,var(--jade-glow),transparent 70%);pointer-events:none}
+  .avatar{width:76px;height:76px;border-radius:10px;background:var(--bg-3);border:1px solid var(--jade-dim);display:grid;place-items:center;font-family:var(--grotesk);font-weight:700;font-size:1.5rem;color:var(--jade);position:relative}
+  .founder-card .nm{font-family:var(--grotesk);font-size:1.5rem;font-weight:600;margin:22px 0 5px}
+  .founder-card .role{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+  .founder-copy h2{font-size:clamp(1.8rem,3.4vw,2.5rem);margin:18px 0 20px;font-weight:600;letter-spacing:-.02em}
+  .founder-copy p{color:var(--text-2);margin-bottom:15px;font-size:1.0rem}
+  .exp-tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
+
+  /* ── CONTACT ── */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .contact-copy h2{font-size:clamp(1.9rem,3.6vw,2.7rem);margin:18px 0 18px;font-weight:600;letter-spacing:-.025em}
+  .contact-copy p{color:var(--muted);font-size:1.04rem;max-width:430px}
+  .clist{margin-top:32px}
+  .cline{display:flex;align-items:center;gap:18px;padding:18px 0;border-top:1px solid var(--line);transition:.25s}
+  .cline:hover{padding-left:8px}
+  .cline .ic{width:42px;height:42px;border-radius:8px;background:var(--panel);border:1px solid var(--line-2);display:grid;place-items:center;color:var(--jade);flex-shrink:0;transition:.25s}
+  .cline:hover .ic{background:var(--jade);color:var(--bg);box-shadow:0 0 24px var(--jade-glow)}
+  .cline small{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .cline b{font-weight:600;font-size:1rem;font-family:var(--mono)}
+  .contact-panel{background:var(--panel);border:1px solid var(--line-2);border-radius:10px;padding:40px 36px;position:relative;overflow:hidden}
+  .contact-panel .glow{position:absolute;top:-50px;left:-40px;width:200px;height:200px;background:radial-gradient(circle,var(--jade-glow),transparent 70%);pointer-events:none}
+  .contact-panel .mk{font-family:var(--cn);font-weight:700;font-size:1.5rem;color:var(--jade);position:relative;margin-bottom:14px}
+  .contact-panel h3{font-size:1.6rem;font-weight:600;margin-bottom:12px;position:relative}
+  .contact-panel p{color:var(--text-2);margin-bottom:26px;position:relative;font-size:.98rem}
+  .panel-meta{position:relative;margin-top:26px;padding-top:22px;border-top:1px solid var(--line);font-family:var(--mono);font-size:.76rem;color:var(--muted);letter-spacing:.04em}
+  .panel-meta b{color:var(--jade)}
+
+  /* ── FOOTER ── */
+  footer{background:var(--bg-3);border-top:1px solid var(--line);padding:56px 0 36px}
+  .foot-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
+  .foot-brand{max-width:320px}
+  .foot-brand p{font-size:.88rem;color:var(--muted);margin-top:18px}
+  .foot-links{display:flex;gap:54px;flex-wrap:wrap}
+  .foot-col h5{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--jade);margin-bottom:16px}
+  .foot-col a{display:block;color:var(--text-2);font-size:.88rem;margin-bottom:10px;transition:.25s}
+  .foot-col a:hover{color:var(--jade)}
+  .foot-bottom{margin-top:44px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-family:var(--mono);font-size:.72rem;color:var(--muted);letter-spacing:.04em}
+
+  /* ── REVEAL ── (gated on .js so content is visible without/if-JS-fails) */
+  .js .reveal{opacity:0;transform:translateY(22px);transition:.75s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:940px){
+    .hero-grid,.about-grid,.cov-grid,.founder-grid,.contact-grid{grid-template-columns:1fr;gap:44px}
+    .bento{grid-template-columns:repeat(2,1fr)}
+    .mod.feature,.mod.tall{grid-column:auto;grid-row:auto}
+    .clients-grid,.svc-grid{grid-template-columns:repeat(2,1fr)}
+    .pcards{grid-template-columns:1fr}
+    .telemetry .wrap{grid-template-columns:repeat(2,1fr)}
+    .tcell:nth-child(2){border-right:none}
+    .steps{grid-template-columns:repeat(2,1fr);gap:36px 24px}
+    .pipe-rail{display:none}
+    nav.links a:not(.btn){display:none}
+    nav.links a.btn{display:inline-flex}
+  }
+  @media(max-width:560px){
+    .wrap{padding:0 22px}
+    section{padding:74px 0}
+    .hero{padding:120px 0 70px}
+    .bento,.clients-grid,.svc-grid,.telemetry .wrap,.steps{grid-template-columns:1fr}
+    .tcell{border-right:none}
+    .hero-cta{flex-direction:column}
+    .hero-cta .btn{justify-content:center}
+    .console-read{grid-template-columns:1fr}
+    .console-read .cell{border-right:none;border-bottom:1px solid var(--line)}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{scroll-behavior:auto}
+    .ticker{animation:none}
+    .pulse-dot,.console-head .sig,.sys-panel .sig,.cov-panel .sig{animation:none!important}
+    .reveal{opacity:1;transform:none;transition:none}
+    .lk{animation:none;stroke-dashoffset:0}
+    .node-appear{animation:none;opacity:1}
+    .ring.a{animation:none;opacity:0}
+    .pipe-rail .fill{transition:none}
+    .jline{opacity:1!important;transform:none!important;transition:none}
+  }
+
+  /* ── CHINA DECODED ── */
+  .decoded-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .dcard{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:26px;position:relative;overflow:hidden;transition:.35s cubic-bezier(.2,.7,.2,1)}
+  .dcard:hover{border-color:var(--jade-dim);background:var(--bg-2);transform:translateY(-4px)}
+  .dcard .dq{font-family:var(--grotesk);font-size:1.1rem;font-weight:500;line-height:1.38;color:var(--text);margin-bottom:16px}
+  .dcard .dl{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--jade)}
+  .dcard .idx{position:absolute;right:18px;top:15px;font-family:var(--mono);font-size:.6rem;color:var(--muted)}
+
+  /* ── DESIGNED JOURNEY ── */
+  .journey{background:var(--bg-3);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .jrn-panel{background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line-2);border-radius:12px;overflow:hidden;box-shadow:0 40px 90px -50px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,255,255,.04)}
+  .jrn-head{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-2)}
+  .jrn-head .sig{width:7px;height:7px;border-radius:50%;background:var(--jade);box-shadow:0 0 10px var(--jade)}
+  .jrn-head .r{margin-left:auto;color:var(--jade);display:flex;align-items:center;gap:6px}
+  .jline{display:grid;grid-template-columns:104px 1fr auto;gap:18px;align-items:center;padding:20px 22px;border-top:1px solid var(--line)}
+  .jline:first-of-type{border-top:none}
+  .js .jline{opacity:.3;transform:translateX(-8px);transition:.6s cubic-bezier(.2,.7,.2,1)}
+  .jline.lit{opacity:1;transform:none}
+  .jline .t{font-family:var(--mono);font-size:.8rem;color:var(--gold)}
+  .jline .d b{font-family:var(--grotesk);font-weight:600;font-size:1.02rem;display:block;margin-bottom:3px}
+  .jline .d span{font-size:.88rem;color:var(--muted)}
+  .jline .badge{font-family:var(--mono);font-size:.6rem;color:var(--jade);border:1px solid var(--jade-dim);border-radius:3px;padding:4px 8px;white-space:nowrap}
+  .jline.win .t{color:var(--jade)}.jline.win .d b{color:var(--jade-bright)}
+  .jrn-foot{padding:17px 22px;border-top:1px solid var(--line-2);font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;color:var(--text-2);display:flex;align-items:center;gap:10px}
+  .jrn-foot b{color:var(--gold)}
+  .jrn-lead{max-width:540px}
+
+  /* ── SOCIALS ── */
+  .socials{display:flex;gap:12px;margin-top:24px}
+  .socials a{width:42px;height:42px;border-radius:8px;background:var(--panel);border:1px solid var(--line-2);display:grid;place-items:center;color:var(--text-2);transition:.25s}
+  .socials a:hover{color:var(--jade);border-color:var(--jade);box-shadow:0 0 24px var(--jade-glow);transform:translateY(-2px)}
+
+  @media(max-width:940px){.decoded-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.decoded-grid{grid-template-columns:1fr}.jline{grid-template-columns:84px 1fr;gap:12px}.jline .badge{display:none}}
+</style>
+</head>
+<body>
+
+<!-- ═══ STATUS BAR ═══ -->
+<div class="statusbar" aria-hidden="true">
+  <div class="ticker" id="ticker">
+    <span><i class="pulse-dot"></i> SINO BUSINESS PARTNER</span>
+    <span>WEST <b>⇄</b> CHINA</span>
+    <span>SYSTEM: <b class="ok">OPERATIONAL</b></span>
+    <span>PROPOSAL SLA <b>&lt; 24H</b></span>
+    <span>COVERAGE: <b>IL · EU · US</b></span>
+    <span>DESK: TEL AVIV <b>32.08°N 34.78°E</b></span>
+    <span><i class="pulse-dot"></i> WE BUILD BUSINESS WITH PLEASURE</span>
+    <span><i class="pulse-dot"></i> SINO BUSINESS PARTNER</span>
+    <span>WEST <b>⇄</b> CHINA</span>
+    <span>SYSTEM: <b class="ok">OPERATIONAL</b></span>
+    <span>PROPOSAL SLA <b>&lt; 24H</b></span>
+    <span>COVERAGE: <b>IL · EU · US</b></span>
+    <span>DESK: TEL AVIV <b>32.08°N 34.78°E</b></span>
+    <span><i class="pulse-dot"></i> WE BUILD BUSINESS WITH PLEASURE</span>
+  </div>
+</div>
+
+<!-- ═══ NAV ═══ -->
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="logo" aria-label="Sino Business Partner home">
+      <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <circle cx="17" cy="18" r="7" fill="#6FB7A9"/>
+        <circle cx="31" cy="20" r="8.5" fill="none" stroke="#CBB183" stroke-width="2"/>
+        <circle cx="22" cy="32" r="9.5" fill="none" stroke="#6FB7A9" stroke-width="2"/>
+      </svg>
+      <span class="logo-txt">SINO BUSINESS PARTNER<small>CHINA · WEST</small></span>
+    </a>
+    <nav class="links">
+      <a href="#platform">Platform</a>
+      <a href="#decoded">Decoded</a>
+      <a href="#services">Services</a>
+      <a href="china-guide.html">China Guide</a>
+      <a href="#coverage">Coverage</a>
+      <a href="#contact" class="btn btn-jade">Plan Your Trip →</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="top">
+  <div class="gridbg"></div>
+  <div class="glowtop"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="reveal">
+        <span class="kicker">Business Travel to China, Designed</span>
+        <h1>The bridge between the <span class="hl">West</span> and <span class="hl">China's</span> trade floor. <span class="cn">桥</span></h1>
+        <p class="lead">Sino Business Partner designs high-touch business travel and real, on-the-ground connections in China for companies and travelers across <b>Israel, Europe and the United States</b> — deep local relationships, Western business discipline, and a technology-driven operation behind every itinerary.</p>
+        <p class="lead" style="color:var(--gold);font-family:var(--grotesk);font-weight:500;font-size:1.06rem;margin-top:4px">We Build Business with Pleasure.</p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-jade">Plan Your China Trip →</a>
+          <a href="china-guide.html" class="btn btn-ghost">Explore the China Guide</a>
+        </div>
+        <div class="hero-rail">
+          <div><div class="n">IL·EU·US</div><div class="l">Clients served</div></div>
+          <div><div class="n">&lt; 24h</div><div class="l">Proposal turnaround</div></div>
+          <div><div class="n">05</div><div class="l">China business hubs</div></div>
+        </div>
+      </div>
+
+      <!-- BRIDGE CONSOLE · multi-origin -->
+      <div class="console reveal" aria-label="West-to-China operations bridge, live schematic">
+        <div class="console-head"><span class="sig"></span> BRIDGE // WEST ⇄ CN <span class="r">LIVE<span class="dots"><i></i><i></i><i></i></span></span></div>
+        <svg class="schematic" viewBox="0 0 480 340" role="img" aria-label="Schematic linking Israel, Europe and the US to Chinese business hubs">
+          <!-- origins: TLV · EUROPE · AMERICAS -->
+          <g><circle class="ring a" cx="66" cy="96" r="6"/><circle class="node-o" cx="66" cy="96" r="7"/><circle cx="66" cy="96" r="2.5" fill="#8FD6C8"/><text class="lbl o" x="42" y="99" text-anchor="end" font-size="9" font-weight="600">TEL AVIV</text></g>
+          <g><circle class="ring a" cx="66" cy="170" r="6" style="animation-delay:.6s"/><circle class="node-o" cx="66" cy="170" r="7"/><circle cx="66" cy="170" r="2.5" fill="#8FD6C8"/><text class="lbl o" x="42" y="173" text-anchor="end" font-size="9" font-weight="600">EUROPE</text></g>
+          <g><circle class="ring a" cx="66" cy="244" r="6" style="animation-delay:1.2s"/><circle class="node-o" cx="66" cy="244" r="7"/><circle cx="66" cy="244" r="2.5" fill="#8FD6C8"/><text class="lbl o" x="42" y="247" text-anchor="end" font-size="9" font-weight="600">AMERICAS</text></g>
+          <!-- links -->
+          <path class="lk" id="lk1" d="M73,96 C 190,92 300,96 384,96"/>
+          <path class="lk" id="lk2" d="M73,96 C 190,108 300,138 384,140" style="animation-delay:.12s"/>
+          <path class="lk" id="lk3" d="M73,170 C 190,162 300,146 384,140" style="animation-delay:.20s"/>
+          <path class="lk" id="lk4" d="M73,170 C 190,176 300,184 384,184" style="animation-delay:.28s"/>
+          <path class="lk" id="lk5" d="M73,170 C 190,192 300,222 384,228" style="animation-delay:.36s"/>
+          <path class="lk" id="lk6" d="M73,244 C 190,236 300,192 384,184" style="animation-delay:.44s"/>
+          <path class="lk" id="lk7" d="M73,244 C 190,242 300,226 384,228" style="animation-delay:.52s"/>
+          <path class="lk" id="lk8" d="M73,244 C 190,250 300,268 384,272" style="animation-delay:.60s"/>
+          <!-- pulses -->
+          <circle class="pulse" r="2.6"><animateMotion dur="2.6s" begin="1.6s" repeatCount="indefinite"><mpath href="#lk1"/></animateMotion></circle>
+          <circle class="pulse" r="2.6"><animateMotion dur="2.9s" begin="2.0s" repeatCount="indefinite"><mpath href="#lk4"/></animateMotion></circle>
+          <circle class="pulse" r="2.6"><animateMotion dur="2.7s" begin="2.4s" repeatCount="indefinite"><mpath href="#lk7"/></animateMotion></circle>
+          <!-- destination hubs -->
+          <g class="node-appear" style="animation-delay:1.5s"><circle class="node-d" cx="384" cy="96" r="4"/><text class="lbl" x="396" y="93" font-size="9" font-weight="600">BEIJING</text><text class="lbl co" x="396" y="104">北京 · PEK</text></g>
+          <g class="node-appear" style="animation-delay:1.62s"><circle class="node-d" cx="384" cy="140" r="4"/><text class="lbl" x="396" y="137" font-size="9" font-weight="600">SHANGHAI</text><text class="lbl co" x="396" y="148">上海 · SHA</text></g>
+          <g class="node-appear" style="animation-delay:1.74s"><circle class="node-d" cx="384" cy="184" r="4"/><text class="lbl" x="396" y="181" font-size="9" font-weight="600">GUANGZHOU</text><text class="lbl co" x="396" y="192">广州 · CAN</text></g>
+          <g class="node-appear" style="animation-delay:1.86s"><circle class="node-d" cx="384" cy="228" r="4"/><text class="lbl" x="396" y="225" font-size="9" font-weight="600">SHENZHEN</text><text class="lbl co" x="396" y="236">深圳 · SZX</text></g>
+          <g class="node-appear" style="animation-delay:1.98s"><circle class="node-d" cx="384" cy="272" r="4"/><text class="lbl" x="396" y="269" font-size="9" font-weight="600">YIWU</text><text class="lbl co" x="396" y="280">义乌 · YIW</text></g>
+        </svg>
+        <div class="console-read">
+          <div class="cell"><div class="k">Origins</div><div class="v"><span class="g">●</span> IL · EU · US</div></div>
+          <div class="cell"><div class="k">China Hubs</div><div class="v"><span class="go">05</span> active</div></div>
+          <div class="cell"><div class="k">Proposal SLA</div><div class="v">&lt; <span class="g">24h</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TELEMETRY ═══ -->
+<div class="telemetry">
+  <div class="wrap">
+    <div class="tcell reveal"><div class="n" data-count="60">0</div><div class="l">UNESCO World Heritage sites — the most in Asia</div></div>
+    <div class="tcell reveal"><div class="n">#2</div><div class="l">World's second-largest economy and a top global trade hub</div></div>
+    <div class="tcell reveal"><div class="n" data-count="42000" data-suffix=" km">0 km</div><div class="l">High-speed rail across China, at up to 350 km/h</div></div>
+    <div class="tcell reveal"><div class="n">&lt; 24h</div><div class="l">From your request to a first itinerary proposal</div></div>
+  </div>
+</div>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about">
+  <div class="gridbg" style="opacity:.5"></div>
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-copy reveal">
+        <span class="kicker">// Who We Are</span>
+        <h2>Not a booking agent. A business-travel design desk.</h2>
+        <p>Sino Business Partner exists for one outcome: making business travel to China seamless, productive and trustworthy for companies and travelers across Israel, Europe and the United States. We are not a booking agent or an import broker. We design and run the full journey — meetings, factory visits, exhibitions and executive itineraries — so clients arrive prepared and travel with confidence.</p>
+        <div class="pull">"We deliver business outcomes, not just trips — a Western standard of clarity and reliability, applied to every engagement in China."</div>
+        <p>And we design the other half on purpose, too: the banquet, the free morning, the experience that turns a transaction into a relationship. That's what we mean by <b style="color:var(--gold);font-weight:600">We Build Business with Pleasure.</b></p>
+      </div>
+      <div class="sys-panel reveal">
+        <div class="ph"><span class="sig"></span> CORE_SYSTEMS.cfg</div>
+        <div class="srow"><span class="ix">01</span><div><b>Deep China network &amp; relationships</b><span>Years of direct familiarity with business China, built on frequent visits and genuine local connections.</span></div><span class="chk">ONLINE</span></div>
+        <div class="srow"><span class="ix">02</span><div><b>Technology &amp; AI-driven service</b><span>Fast proposals, a digital concierge and smart processes no traditional operator can match.</span></div><span class="chk">ONLINE</span></div>
+        <div class="srow"><span class="ix">03</span><div><b>Western client network</b><span>Companies and travelers across Israel, Europe and the US — professional, high-intent business travel.</span></div><span class="chk">ONLINE</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PLATFORM / BENTO ═══ -->
+<section id="platform" class="divide">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker gold">// Capabilities</span>
+      <h2>The platform behind every itinerary.</h2>
+      <p>Four systems working together — local depth, technology, a Western client base, and operational reliability.</p>
+    </div>
+    <div class="bento">
+      <div class="mod feature reveal">
+        <div class="mh"><span class="idx">MODULE / 01</span><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="4"/><path d="M5 5l2.5 2.5M19 5l-2.5 2.5M5 19l2.5-2.5M19 19l-2.5-2.5" opacity=".6"/></svg></span></div>
+        <h4>Technology &amp; AI-driven service</h4>
+        <p>Fast proposals, a digital concierge and smart, repeatable processes. The tech layer is the difference between a quote next week and an itinerary today — and it's what makes working with us efficient for partners, too.</p>
+        <div class="metric">◇ PROPOSAL SLA &lt; 24H · DIGITAL CONCIERGE 24/7</div>
+      </div>
+      <div class="mod tall reveal">
+        <div class="mh"><span class="idx">MODULE / 02</span><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="8" r="3"/><circle cx="17" cy="14" r="3"/><path d="M9.5 9.5l5 3"/></svg></span></div>
+        <h4>Deep China network</h4>
+        <p>Direct, first-hand relationships across China's business and trade hubs — the trusted DMCs, operators and hosts that turn a plan into a dependable engagement on the ground.</p>
+        <div class="metric">◇ HUBS: PEK · SHA · CAN · SZX · YIW</div>
+        <span class="cn-mark">网</span>
+      </div>
+      <div class="mod reveal">
+        <div class="mh"><span class="idx">MODULE / 03</span><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="10" cy="7" r="3.2"/><path d="M18 12a3 3 0 0 0 0-6" opacity=".6"/></svg></span></div>
+        <h4>Western client network</h4>
+        <p>Companies and travelers across Israel, Europe and the US — a quality flow of professional, high-intent business travelers.</p>
+        <span class="cn-mark">客</span>
+      </div>
+      <div class="mod reveal">
+        <div class="mh"><span class="idx">MODULE / 04</span><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span></div>
+        <h4>Operational reliability</h4>
+        <p>Clear communication, fair and dependable payment, and an organized, accountable partner that makes every collaboration smooth and predictable.</p>
+        <span class="cn-mark">信</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CHINA DECODED ═══ -->
+<section id="decoded" class="divide">
+  <div class="gridbg" style="opacity:.5"></div>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker gold">// China, Decoded</span>
+      <h2>China rewards those who arrive prepared.</h2>
+      <p>A few things most Western companies learn too late — and that we prepare you for before you board.</p>
+    </div>
+    <div class="decoded-grid">
+      <div class="dcard reveal"><span class="idx">01</span><div class="dq">"The dinner is the meeting. The deal is sealed somewhere around the third toast."</div><div class="dl">The Banquet</div></div>
+      <div class="dcard reveal"><span class="idx">02</span><div class="dq">"'Yes' often means 'I hear you' — not 'I agree.'"</div><div class="dl">Reading the Room</div></div>
+      <div class="dcard reveal"><span class="idx">03</span><div class="dq">"The contract is the start of trust, not the proof of it — the relationship is maintained after the signature."</div><div class="dl">Guanxi · 关系</div></div>
+      <div class="dcard reveal"><span class="idx">04</span><div class="dq">"The most senior person often says the least. Watch who they defer to."</div><div class="dl">Hierarchy</div></div>
+      <div class="dcard reveal"><span class="idx">05</span><div class="dq">"Silence isn't rejection — it's consideration. Don't rush to fill it."</div><div class="dl">Negotiation</div></div>
+      <div class="dcard reveal"><span class="idx">06</span><div class="dq">"Cards, gifts and seating all carry meaning. The small signals decide the big ones."</div><div class="dl">Etiquette</div></div>
+    </div>
+    <div class="reveal" style="margin-top:34px"><a href="china-guide.html" class="btn btn-ghost">Explore the full China Guide →</a></div>
+  </div>
+</section>
+
+<!-- ═══ SERVICES ═══ -->
+<section id="services" class="divide">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">// Services · Operations Catalog</span>
+      <h2>What we design and run.</h2>
+      <p>A full-service operation for business travel to China — from the first meeting request to the last mile on the ground.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc reveal">
+        <div class="sh"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="6" cy="6" r="2.2"/><circle cx="18" cy="18" r="2.2"/><path d="M8 6h6a3 3 0 0 1 0 6H10a3 3 0 0 0 0 6h6"/></svg></span><span class="sx">SVC / 01</span></div>
+        <h4>Business-Travel Design</h4>
+        <p>End-to-end itinerary engineering — supplier meetings, factory visits, executive schedules and the logistics that hold them together. We sell the business outcome, not just the trip.</p>
+        <div class="spec">ITINERARY · MEETINGS · FACTORY VISITS</div>
+      </div>
+      <div class="svc reveal">
+        <div class="sh"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><path d="M16 5.5a3 3 0 0 1 0 6M15.5 20a5.5 5.5 0 0 1 5.5 0" opacity=".55"/></svg></span><span class="sx">SVC / 02</span></div>
+        <h4>MICE &amp; Delegations</h4>
+        <p>Meetings, incentives, conferences and trade delegations — managed end-to-end for groups, with one organized Israeli desk coordinating every moving part.</p>
+        <div class="spec">GROUPS · EVENTS · END-TO-END</div>
+      </div>
+      <div class="svc reveal">
+        <div class="sh"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 9l1.2-4h13.6L20 9"/><path d="M4 9a2 2 0 0 0 4 0 2 2 0 0 0 4 0 2 2 0 0 0 4 0 2 2 0 0 0 4 0"/><path d="M5 10.5V20h14v-9.5"/><path d="M9.5 20v-4.5h5V20"/></svg></span><span class="sx">SVC / 03</span></div>
+        <h4>Exhibitions &amp; Trade Fairs</h4>
+        <p>Access and on-site coordination for the Canton Fair (广交会), the Yiwu wholesale market and major industry expos — registration, scheduling, interpreters and follow-ups.</p>
+        <div class="spec">CANTON FAIR · YIWU · INDUSTRY EXPOS</div>
+      </div>
+      <div class="svc reveal">
+        <div class="sh"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19h16"/><path d="M6 19a6 6 0 0 1 12 0"/><path d="M12 7V5M9.5 7h5"/></svg></span><span class="sx">SVC / 04</span></div>
+        <h4>Ground Services</h4>
+        <p>Vetted hotels, private transport, professional interpreters and guided experiences across China's business hubs — the dependable last mile, handled by trusted local partners.</p>
+        <div class="spec">HOTELS · TRANSFERS · INTERPRETERS</div>
+      </div>
+      <div class="svc reveal">
+        <div class="sh"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8.5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2 2 2 0 0 0 0 4 2 2 0 0 1-2 2H5a2 2 0 0 1-2-2 2 2 0 0 0 0-4z"/><path d="M13 6.5v11" stroke-dasharray="2 2"/></svg></span><span class="sx">SVC / 05</span></div>
+        <h4>Air Ticketing &amp; Insurance</h4>
+        <p>Flights and travel insurance arranged through a licensed IATA partner agency — fares, changes and cover handled inside the same itinerary, not left to the traveler.</p>
+        <div class="spec">IATA PARTNER · FLIGHTS · COVER</div>
+      </div>
+      <div class="svc reveal">
+        <div class="sh"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="10" r="2.6"/><path d="M8.5 15.5h7"/></svg></span><span class="sx">SVC / 06</span></div>
+        <h4>Visa &amp; Entry Guidance</h4>
+        <p>China entry mapped to your passport and country — including the current visa-free transit options for eligible travelers, invitation letters and documentation. Requirements vary by nationality; we route you the right way in.</p>
+        <div class="spec">VISA · TRANSIT · INVITATIONS</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DESIGNED JOURNEY ═══ -->
+<section id="journey" class="journey">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker gold">// A Designed Journey</span>
+      <h2>What "designed" actually looks like.</h2>
+      <p class="jrn-lead">One trip, engineered end to end — the boardroom and the banquet, the factory floor and the free morning you'll talk about for years.</p>
+    </div>
+    <div class="jrn-panel reveal" id="jrnPanel">
+      <div class="jrn-head"><span class="sig"></span> ITINERARY // SAMPLE BUILD <span class="r">COMPOSING</span></div>
+      <div class="jline"><div class="t">DAY 1 · 08:30</div><div class="d"><b>Shanghai — supplier meeting</b><span>Agenda set, interpreter briefed, meetings sequenced for the outcome you need.</span></div><span class="badge">BUSINESS</span></div>
+      <div class="jline"><div class="t">DAY 2 · 13:00</div><div class="d"><b>Shenzhen — factory visit &amp; QC</b><span>On-site review with a trusted local partner; the right questions, asked the right way.</span></div><span class="badge">BUSINESS</span></div>
+      <div class="jline"><div class="t">DAY 2 · 19:30</div><div class="d"><b>The banquet</b><span>Where the relationship is actually built — and where the deal quietly closes.</span></div><span class="badge">PLEASURE</span></div>
+      <div class="jline"><div class="t">DAY 3 · 07:00</div><div class="d"><b>A free morning — the Great Wall at sunrise</b><span>The moment that turns a trip into a story, and a contact into a partner.</span></div><span class="badge">PLEASURE</span></div>
+      <div class="jline win"><div class="t">RESULT ✓</div><div class="d"><b>Deal closed. Relationship, begun.</b><span>You arrived prepared, traveled with confidence, and left with more than a signature.</span></div><span class="badge">OUTCOME</span></div>
+      <div class="jrn-foot"><span>◇</span> This is what we mean by <b>We Build Business with Pleasure.</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CLIENTS ═══ -->
+<section id="clients" class="divide">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">// Who We Serve</span>
+      <h2>The companies that travel with us.</h2>
+      <p>Our clients come to China to do real business — across Israel, Europe and the United States. Knowing who they are shapes how we design every trip.</p>
+    </div>
+    <div class="clients-grid">
+      <div class="ccard reveal">
+        <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-6 9 6v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 21v-6h6v6"/></svg></div>
+        <h4>Importers</h4><p>Sourcing electronics, machinery, building materials, textiles and components — needing reliable on-the-ground meetings.</p>
+        <div class="ct"><span class="tag">ELECTRONICS · MACHINERY</span></div>
+      </div>
+      <div class="ccard reveal">
+        <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg></div>
+        <h4>Manufacturers</h4><p>Visiting factories and suppliers to oversee quality, production and long-term manufacturing relationships.</p>
+        <div class="ct"><span class="tag">FACTORY · QC · SUPPLY</span></div>
+      </div>
+      <div class="ccard reveal">
+        <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l2.5 7h7l-5.5 4 2 7-6-4.5-6 4.5 2-7L2.5 9h7z"/></svg></div>
+        <h4>Private-Brand Owners</h4><p>Building products in China — requiring trusted introductions, premium logistics and discretion.</p>
+        <div class="ct"><span class="tag">BRAND · OEM · DISCREET</span></div>
+      </div>
+      <div class="ccard reveal">
+        <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 18v3M16 18v3"/></svg></div>
+        <h4>Trade Delegations</h4><p>Business groups attending the Canton Fair (广交会), Yiwu and major industry exhibitions across China.</p>
+        <div class="ct"><span class="tag">广交会 · EXPOS</span></div>
+      </div>
+    </div>
+    <p class="client-note reveal">A quality flow of professional, paying business travelers — not mass-market tourism.</p>
+  </div>
+</section>
+
+<!-- ═══ PARTNERSHIP ═══ -->
+<section id="partnership" class="divide">
+  <div class="gridbg" style="opacity:.5"></div>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker gold">// Why Partner With Us</span>
+      <h2>What working with Sino Business Partner means for you.</h2>
+      <p>We're selecting trusted DMCs, ground operators, hotels and service providers who share our standard of quality and reliability.</p>
+    </div>
+    <div class="pcards">
+      <div class="pcard reveal"><div class="top"><span class="glyph">客</span><span class="pn">BENEFIT_01</span></div><h4>A quality stream of clients</h4><p>Access to high-value Western business travelers — importers, manufacturers and delegations across IL · EU · US — bringing consistent, professional, paying engagements.</p></div>
+      <div class="pcard reveal"><div class="top"><span class="glyph">信</span><span class="pn">BENEFIT_02</span></div><h4>A professional, reliable partner</h4><p>Clear communication, fair and dependable payment, and an organized, accountable Western partner that makes every collaboration smooth and predictable.</p></div>
+      <div class="pcard reveal"><div class="top"><span class="glyph">桥</span><span class="pn">BENEFIT_03</span></div><h4>A cultural &amp; technology bridge</h4><p>We close the language and cultural gap and bring digital tools to the table — making it easy and efficient for you to work with us and our clients.</p></div>
+      <div class="pcard reveal"><div class="top"><span class="glyph">久</span><span class="pn">BENEFIT_04</span></div><h4>A long-term partnership</h4><p>We're not after a one-off deal. We build lasting relationships with a select group of partners and grow the business together over time.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROCESS ═══ -->
+<section id="process" class="divide">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">// How We Work</span>
+      <h2>A clear, engineered way of working together.</h2>
+    </div>
+    <div class="pipe">
+      <div class="pipe-rail" id="pipeRail"><div class="fill"></div></div>
+      <div class="steps">
+        <div class="step reveal"><div class="sn">STEP_01</div><div class="node"></div><h4>Introduction</h4><p>We get to know each other, your capabilities and the regions and services you cover.</p></div>
+        <div class="step reveal"><div class="sn">STEP_02</div><div class="node"></div><h4>Alignment</h4><p>We define quality standards, scope and terms — clear expectations on both sides from day one.</p></div>
+        <div class="step reveal"><div class="sn">STEP_03</div><div class="node"></div><h4>Delivery</h4><p>We bring real client itineraries; you deliver dependable ground services on the ground.</p></div>
+        <div class="step reveal"><div class="sn">STEP_04</div><div class="node"></div><h4>Growth</h4><p>We build a steady, repeating flow of business and expand the partnership together.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ COVERAGE ═══ -->
+<section id="coverage" class="divide">
+  <div class="wrap">
+    <div class="cov-grid">
+      <div class="cov-copy reveal">
+        <span class="kicker">// Where We Operate</span>
+        <h2>Wired into China's business and trade hubs.</h2>
+        <p>Our activity centers on the major business metropolises and the leading trade and exhibition cities — exactly where clients need a trusted presence.</p>
+        <div class="cov-tags">
+          <span class="tag">BUSINESS METROPOLISES</span>
+          <span class="tag">TRADE &amp; EXHIBITION CITIES</span>
+        </div>
+      </div>
+      <div class="cov-panel reveal">
+        <div class="ph"><span class="sig"></span> COVERAGE_MAP // ACTIVE HUBS</div>
+        <div class="crow"><span class="dot"></span><span class="en">Beijing</span><span class="cn">北京</span><span class="co">PEK</span></div>
+        <div class="crow"><span class="dot"></span><span class="en">Shanghai</span><span class="cn">上海</span><span class="co">SHA</span></div>
+        <div class="crow"><span class="dot"></span><span class="en">Shenzhen</span><span class="cn">深圳</span><span class="co">SZX</span></div>
+        <div class="crow"><span class="dot"></span><span class="en">Guangzhou</span><span class="cn">广州</span><span class="co">CAN</span></div>
+        <div class="crow"><span class="dot"></span><span class="en">Yiwu</span><span class="cn">义乌</span><span class="co">YIW</span></div>
+        <div class="crow"><span class="dot"></span><span class="en">Canton Fair</span><span class="cn">广交会</span><span class="co">EXPO</span></div>
+        <div class="crow"><span class="dot"></span><span class="en">Hangzhou</span><span class="cn">杭州</span><span class="co">HGH</span></div>
+        <div class="crow"><span class="dot"></span><span class="en">&amp; key trade hubs</span><span class="cn">贸易枢纽</span><span class="co">+++</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOUNDER ═══ -->
+<section id="founder" class="divide">
+  <div class="wrap">
+    <div class="founder-grid">
+      <div class="founder-card reveal">
+        <div class="glow"></div>
+        <div class="avatar">SB</div>
+        <div class="nm">Motti Oren</div>
+        <div class="role">Founder</div>
+      </div>
+      <div class="founder-copy reveal">
+        <span class="kicker gold">// The Person Behind the Partnership</span>
+        <h2>Built on real business experience.</h2>
+        <p>Sino Business Partner is led by an entrepreneur with a broad track record across multiple business sectors, specializing in international commercial and business activity.</p>
+        <p>His experience spans the representation of international brands in Israel, the real estate sector, and the development of AI solutions for businesses — together with deep, first-hand familiarity with China through frequent visits and established business connections.</p>
+        <div class="exp-tags">
+          <span class="tag">INTERNATIONAL TRADE</span>
+          <span class="tag">BRAND REPRESENTATION</span>
+          <span class="tag">REAL ESTATE</span>
+          <span class="tag">AI SOLUTIONS</span>
+          <span class="tag">CHINA EXPERTISE</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact" class="divide">
+  <div class="gridbg" style="opacity:.5"></div>
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-copy reveal">
+        <span class="kicker">// Get in Touch</span>
+        <h2>Let's design your China.</h2>
+        <p>Tell us where you're headed and what has to happen there. We'll come back with a plan — usually within 24 hours.</p>
+        <div class="clist">
+          <a class="cline" href="mailto:info@sinobusinesspartner.com"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span><small>Email</small><b>info@sinobusinesspartner.com</b></span></a>
+          <a class="cline" href="tel:+972549796009"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 4h4l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span><span><small>Phone / WhatsApp</small><b>+972-54-9796009</b></span></a>
+          <a class="cline" href="https://wa.me/972549796009" target="_blank" rel="noopener"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20l1.5-4A8 8 0 1 1 9 19z"/></svg></span><span><small>WhatsApp</small><b>Message us →</b></span></a>
+          <div class="cline"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M8 12h.01M12 12h.01M16 12h.01"/></svg></span><span><small>WeChat</small><b>sinobusinesspartner</b></span></div>
+          <div class="cline"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span><small>Location</small><b>Tel Aviv, Israel · Serving IL · EU · US</b></span></div>
+        </div>
+        <div class="socials">
+          <a href="https://instagram.com/sinobusinesspartner" aria-label="Instagram" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.linkedin.com/company/sinobusinesspartner" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 17v-7"/></svg></a>
+          <a href="https://facebook.com/sinobusinesspartner" aria-label="Facebook" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 8h2V5h-2a3 3 0 0 0-3 3v2H9v3h2v6h3v-6h2l1-3h-3V8a1 1 0 0 1 1-1z"/></svg></a>
+        </div>
+      </div>
+      <div class="contact-panel reveal">
+        <div class="glow"></div>
+        <div class="mk">联系</div>
+        <h3>Plan Your China Trip</h3>
+        <p>Meetings, factories, exhibitions or a full delegation — tell us the goal and we'll design the journey around it.</p>
+        <a href="mailto:info@sinobusinesspartner.com?subject=Planning%20a%20China%20trip" class="btn btn-jade">Start Your Journey →</a>
+        <div class="panel-meta">PARTNERS IN CHINA (DMCs · hotels · operators): <b>info@sinobusinesspartner.com</b><br>SERVING BUSINESS TRAVEL TO CHINA · IL · EU · US</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="#top" class="logo">
+          <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <circle cx="17" cy="18" r="7" fill="#6FB7A9"/>
+            <circle cx="31" cy="20" r="8.5" fill="none" stroke="#CBB183" stroke-width="2"/>
+            <circle cx="22" cy="32" r="9.5" fill="none" stroke="#6FB7A9" stroke-width="2"/>
+          </svg>
+          <span class="logo-txt">SINO BUSINESS PARTNER<small>CHINA · WEST</small></span>
+        </a>
+        <p>A technology-driven business-travel design desk, connecting companies across Israel, Europe and the US with trusted service partners in China. We Build Business with Pleasure.</p>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h5>Company</h5>
+          <a href="#about">About</a>
+          <a href="#decoded">China Decoded</a>
+          <a href="#services">Services</a>
+          <a href="china-guide.html">China Guide</a>
+          <a href="#coverage">Coverage</a>
+        </div>
+        <div class="foot-col">
+          <h5>Contact</h5>
+          <a href="mailto:info@sinobusinesspartner.com">info@sinobusinesspartner.com</a>
+          <a href="tel:+972549796009">+972-54-9796009</a>
+          <a href="https://wa.me/972549796009" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="#contact">WeChat · sinobusinesspartner</a>
+        </div>
+        <div class="foot-col">
+          <h5>Follow</h5>
+          <a href="https://instagram.com/sinobusinesspartner" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.linkedin.com/company/sinobusinesspartner" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://facebook.com/sinobusinesspartner" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 SINO BUSINESS PARTNER · ALL RIGHTS RESERVED</span>
+      <span>SINOBUSINESSPARTNER.COM · TEL AVIV, ISRAEL</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.documentElement.classList.add('js');
+
+  // nav glass on scroll
+  const nav=document.getElementById('nav');
+  addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>30),{passive:true});
+
+  // reveal on scroll
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4*70)+'ms';io.observe(el)});
+
+  // count-up
+  function countUp(el){
+    const target=parseFloat(el.dataset.count), pre=el.dataset.prefix||'', suf=el.dataset.suffix||'';
+    const dec=(target%1!==0)?1:0;
+    if(reduce){el.textContent=pre+target.toLocaleString(undefined,{minimumFractionDigits:dec,maximumFractionDigits:dec})+suf;return;}
+    let t0=null, dur=1400;
+    function step(ts){
+      if(!t0)t0=ts; const p=Math.min((ts-t0)/dur,1); const e=1-Math.pow(1-p,3);
+      const val=target*e;
+      el.textContent=pre+val.toLocaleString(undefined,{minimumFractionDigits:dec,maximumFractionDigits:dec})+suf;
+      if(p<1)requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  const cio=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){countUp(e.target);cio.unobserve(e.target)}}),{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+
+  // process pipeline rail fill + node light
+  const rail=document.getElementById('pipeRail');
+  const pio=new IntersectionObserver((es)=>es.forEach(e=>{
+    if(e.isIntersecting){
+      rail.classList.add('on');
+      document.querySelectorAll('.step').forEach((s,i)=>setTimeout(()=>s.classList.add('lit'), reduce?0:300+i*300));
+      pio.disconnect();
+    }
+  }),{threshold:.4});
+  if(rail) pio.observe(rail);
+
+  // designed-journey: light rows in sequence
+  const jrn=document.getElementById('jrnPanel');
+  if(jrn){
+    const jio=new IntersectionObserver((es)=>es.forEach(e=>{
+      if(e.isIntersecting){
+        jrn.querySelectorAll('.jline').forEach((l,i)=>setTimeout(()=>l.classList.add('lit'), reduce?0:250+i*280));
+        jio.disconnect();
+      }
+    }),{threshold:.3});
+    jio.observe(jrn);
+  }
+
+  // reduced motion: stop SMIL pulses
+  if(reduce){document.querySelectorAll('animateMotion').forEach(a=>a.remove());}
+
+  // failsafe: if IntersectionObserver never fires (some embedded/offscreen renderers),
+  // force-reveal all content, run counters and light the pipeline so nothing stays hidden.
+  function setFinal(el){
+    const t=parseFloat(el.dataset.count),pre=el.dataset.prefix||'',suf=el.dataset.suffix||'',dec=(t%1!==0)?1:0;
+    el.textContent=pre+t.toLocaleString(undefined,{minimumFractionDigits:dec,maximumFractionDigits:dec})+suf;
+  }
+  addEventListener('load',()=>setTimeout(()=>{
+    if(!document.querySelector('.reveal.in')){
+      document.querySelectorAll('.reveal').forEach(e=>e.classList.add('in'));
+      document.querySelectorAll('[data-count]').forEach(setFinal);   // direct, no rAF dependency
+      if(rail){rail.classList.add('on');document.querySelectorAll('.step').forEach(s=>s.classList.add('lit'));}
+      document.querySelectorAll('.jline').forEach(l=>l.classList.add('lit'));
+    }
+  },900));
+</script>
+</body>
+</html>
