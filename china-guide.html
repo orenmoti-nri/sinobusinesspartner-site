@@ -3,23 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Meta Pixel is loaded only after cookie consent — see consent script before 
-<script>
-(function(){
-  var t=document.getElementById('nav-toggle'), m=document.getElementById('mobile-menu');
-  if(!t||!m)return;
-  function setOpen(o){
-    t.setAttribute('aria-expanded',String(o));
-    t.setAttribute('aria-label',o?'Close menu':'Open menu');
-    m.classList.toggle('open',o);
-  }
-  t.addEventListener('click',function(){setOpen(t.getAttribute('aria-expanded')!=='true');});
-  m.addEventListener('click',function(e){if(e.target.closest('a'))setOpen(false);});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&t.getAttribute('aria-expanded')==='true'){setOpen(false);t.focus();}});
-  addEventListener('resize',function(){if(innerWidth>940)setOpen(false);},{passive:true});
-})();
-</script>
-</body> -->
+<!-- Meta Pixel is loaded only after cookie consent — see consent script before </body> -->
 <title>China Guide for Business Travelers — Sino Business Partner</title>
 <meta name="description" content="A working China briefing for business travelers — hubs, trade fairs, visas, payments, etiquette and experiences. By Sino Business Partner. West to China, designed.">
 <!-- SEO & Social -->
@@ -689,5 +673,21 @@
 
 <!-- Accessibility widget (Negishot · certified IL accessibility) -->
 <script src="https://negishot.co.il/cdn/widget.php?code=NGS_D4A7A724A799"></script>
+
+<script>
+(function(){
+  var t=document.getElementById('nav-toggle'), m=document.getElementById('mobile-menu');
+  if(!t||!m)return;
+  function setOpen(o){
+    t.setAttribute('aria-expanded',String(o));
+    t.setAttribute('aria-label',o?'Close menu':'Open menu');
+    m.classList.toggle('open',o);
+  }
+  t.addEventListener('click',function(){setOpen(t.getAttribute('aria-expanded')!=='true');});
+  m.addEventListener('click',function(e){if(e.target.closest('a'))setOpen(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&t.getAttribute('aria-expanded')==='true'){setOpen(false);t.focus();}});
+  addEventListener('resize',function(){if(innerWidth>940)setOpen(false);},{passive:true});
+})();
+</script>
 </body>
 </html>
