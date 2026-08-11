@@ -430,6 +430,8 @@
 </style>
 
 <style>
+/* ── ANCHOR OFFSET (fixed 30px statusbar + 70px nav) ── */
+html{scroll-padding-top:112px}
 /* ── MOBILE NAV ── */
 .nav-toggle{display:none;width:42px;height:42px;padding:0;border:1px solid var(--line-2);border-radius:6px;background:transparent;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;flex-shrink:0;transition:.25s}
 .nav-toggle:hover{border-color:var(--jade)}
@@ -495,14 +497,14 @@
     <nav class="links">
       <a href="#concierge">Concierge</a>
       <a href="#services">Services</a>
-      <a href="#decoded">Decoded</a>
+      <a href="china-guide#etiquette">Decoded</a>
       <a href="china-guide">China Guide</a>
       <a href="/insights/">Insights</a>
       <a href="#contact" class="btn btn-jade">Plan Your Trip →</a>
     </nav><button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
   </div><div class="mobile-menu" id="mobile-menu"><div class="mm-in"><a href="#concierge">Concierge</a>
       <a href="#services">Services</a>
-      <a href="#decoded">Decoded</a>
+      <a href="china-guide#etiquette">Decoded</a>
       <a href="china-guide">China Guide</a>
       <a href="/insights/">Insights</a>
       <a href="#contact" class="btn btn-jade">Plan Your Trip →</a></div></div></header>
@@ -608,7 +610,7 @@
       <h2>You focus on the business. We handle everything else.</h2>
       <p>From the boardroom to dinner to the spa — one team on the ground takes care of every detail through our trusted local partners. You ask once. It's handled.</p>
     </div>
-    <div class="svc-grid">
+    <div class="svc-grid" id="services">
       <div class="svc reveal">
         <div class="sh"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="6" cy="6" r="2.2"/><circle cx="18" cy="18" r="2.2"/><path d="M8 6h6a3 3 0 0 1 0 6H10a3 3 0 0 0 0 6h6"/></svg></span><span class="sx">SVC / 01</span></div>
         <h4>Business-Travel Design</h4>
@@ -859,7 +861,7 @@
           <a href="#about">About</a>
           <a href="#concierge">Concierge</a>
           <a href="#services">Services</a>
-          <a href="#decoded">China Decoded</a>
+          <a href="china-guide#etiquette">China Decoded</a>
           <a href="china-guide">China Guide</a>
         </div>
         <div class="foot-col">
