@@ -118,7 +118,8 @@
   .logo-txt small{display:block;font-size:.58rem;letter-spacing:.24em;color:var(--jade);margin-top:2px}
 
   /* ── BUTTONS ── */
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--he);font-weight:700;font-size:1rem;padding:15px 26px;border-radius:var(--r-md);cursor:pointer;border:1px solid transparent;transition:.25s cubic-bezier(.2,.7,.2,1)}
+  /* background/appearance reset is required: <button> gets a UA default background, <a> does not */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--he);font-weight:700;font-size:1rem;padding:15px 26px;border-radius:var(--r-md);cursor:pointer;border:1px solid transparent;background:transparent;appearance:none;-webkit-appearance:none;transition:.25s cubic-bezier(.2,.7,.2,1)}
   .btn-jade{background:var(--jade);color:#06100E}
   .btn-jade:hover{background:var(--jade-bright);box-shadow:0 0 30px var(--jade-glow);transform:translateY(-1px)}
   .btn-ghost{border-color:var(--line-2);color:var(--text);font-weight:500}
