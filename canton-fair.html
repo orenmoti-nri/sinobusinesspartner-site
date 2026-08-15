@@ -622,6 +622,17 @@
         <!-- Formspree honeypot: silently discards the submission if a bot fills this -->
         <div class="hp" aria-hidden="true"><label>אל תמלא שדה זה<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
 
+        <!-- Attribution: filled by JS on load. Consent-independent, so every enquiry
+             carries its source even when the visitor declines the Pixel cookie. -->
+        <input type="hidden" name="utm_source" value="">
+        <input type="hidden" name="utm_medium" value="">
+        <input type="hidden" name="utm_campaign" value="">
+        <input type="hidden" name="utm_content" value="">
+        <input type="hidden" name="utm_term" value="">
+        <input type="hidden" name="click_id" value="">
+        <input type="hidden" name="landing_page" value="">
+        <input type="hidden" name="referrer" value="">
+
         <div class="fp-body">
           <!-- STEP 1 -->
           <fieldset data-step="1">
@@ -944,9 +955,48 @@ document.documentElement.className='js';
   if(a)a.addEventListener('click',function(){try{localStorage.setItem(KEY,'accepted')}catch(e){} hide(); loadPixel()});
   if(dc)dc.addEventListener('click',function(){try{localStorage.setItem(KEY,'declined')}catch(e){} hide()});
 
+  /* Lead fires at most once per visit — the form submit and a WhatsApp/mail/tel
+     click are the same enquiry, and a double click is not two leads. */
+  var leadSent=false;
+  function trackLead(){
+    if(leadSent) return;
+    leadSent=true;
+    if(window.fbq){try{fbq('track','Lead');}catch(_){}}
+  }
+
   /* ── multi-step form ── */
   var form=document.getElementById('sbp-form');
   if(form){
+
+    /* Attribution capture. Runs regardless of cookie consent, so a visitor who
+       declines the Pixel still arrives in the inbox with their source attached.
+       Stashed in sessionStorage so the tags survive navigating away and back. */
+    (function(){
+      var KEYS=['utm_source','utm_medium','utm_campaign','utm_content','utm_term'],
+          STORE='sbp_attribution', qs=null, saved={};
+      try{qs=new URLSearchParams(location.search)}catch(e){}
+      try{saved=JSON.parse(sessionStorage.getItem(STORE)||'{}')}catch(e){saved={}}
+
+      KEYS.forEach(function(k){
+        var v=(qs&&qs.get(k))||saved[k]||'';
+        if(v) saved[k]=v;
+        var el=form.querySelector('input[name="'+k+'"]');
+        if(el) el.value=v;
+      });
+
+      var click=(qs&&(qs.get('fbclid')||qs.get('gclid')||qs.get('li_fat_id')))||saved.click_id||'';
+      if(click) saved.click_id=click;
+      var ce=form.querySelector('input[name="click_id"]');
+      if(ce) ce.value=click;
+
+      var lp=form.querySelector('input[name="landing_page"]');
+      if(lp) lp.value=location.pathname+location.search;
+      var rf=form.querySelector('input[name="referrer"]');
+      if(rf) rf.value=document.referrer||'direct';
+
+      try{sessionStorage.setItem(STORE,JSON.stringify(saved))}catch(e){}
+    })();
+
     var steps=[].slice.call(form.querySelectorAll('fieldset[data-step]')),
         bars=[document.getElementById('bar1'),document.getElementById('bar2'),document.getElementById('bar3')],
         counter=document.getElementById('fp-count'),
@@ -1007,7 +1057,7 @@ document.documentElement.className='js';
             form.hidden=true; done.hidden=false;
             try{done.focus();}catch(e){}
             done.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});
-            if(window.fbq){try{fbq('track','Lead');}catch(_){}}
+            trackLead();
           } else {
             return r.json().then(function(d){
               throw new Error(d&&d.errors?d.errors.map(function(e){return e.message;}).join(', '):'שגיאה');
@@ -1025,7 +1075,7 @@ document.documentElement.className='js';
   /* Lead event on any contact click (only fires if pixel consented) */
   document.addEventListener('click',function(ev){
     var el=ev.target.closest&&ev.target.closest('a[href^="mailto:"],a[href^="tel:"],a[href*="wa.me"]');
-    if(el&&window.fbq){try{fbq('track','Lead')}catch(_){}}
+    if(el) trackLead();
   },true);
 })();
 </script>
