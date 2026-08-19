@@ -110,7 +110,7 @@
   @keyframes beacon{0%{box-shadow:0 0 0 0 var(--jade-glow)}70%{box-shadow:0 0 0 7px transparent}100%{box-shadow:0 0 0 0 transparent}}
   .sticky .mini{font-family:var(--mono);font-size:.78rem;color:var(--gold);direction:ltr}
   .sticky .m-short{display:none}
-  .sticky-cta{font-family:var(--he);font-weight:700;font-size:.84rem;background:var(--jade);color:#06100E;padding:7px 15px;border-radius:var(--r-sm);white-space:nowrap;flex-shrink:0;transition:.25s cubic-bezier(.2,.7,.2,1)}
+  .sticky-cta{display:inline-flex;align-items:center;gap:6px;font-family:var(--he);font-weight:700;font-size:.84rem;background:var(--jade);color:#06100E;padding:7px 15px;border-radius:var(--r-sm);white-space:nowrap;flex-shrink:0;transition:.25s cubic-bezier(.2,.7,.2,1)}
   .sticky-cta:hover{background:var(--jade-bright);box-shadow:0 0 20px var(--jade-glow)}
 
   /* ── HEADER (logo only — no nav, single-action page) ── */
@@ -367,7 +367,7 @@
   <div class="in">
     <span class="msg"><i class="pulse-dot" aria-hidden="true"></i><span class="m-full">יריד קנטון ה-140 · שלב ראשון נפתח <b>15 באוקטובר 2026</b></span><span class="m-short">היריד נפתח <b>15.10</b></span></span>
     <span class="mini" id="mini-cd" aria-hidden="true"></span>
-    <a href="#form" class="sticky-cta">קבל הצעה ←</a>
+    <a href="https://wa.me/972549796009?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%AA%D7%9B%D7%A0%D7%9F%20%D7%A0%D7%A1%D7%99%D7%A2%D7%94%20%D7%9C%D7%99%D7%A8%D7%99%D7%93%20%D7%A7%D7%A0%D7%98%D7%95%D7%9F%202026" class="sticky-cta" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.16c-.25.69-1.44 1.32-1.99 1.37-.51.05-1.15.07-1.86-.12-.43-.13-.98-.31-1.69-.61-2.97-1.28-4.91-4.27-5.06-4.47-.15-.2-1.21-1.61-1.21-3.07s.77-2.18 1.04-2.48c.27-.3.59-.37.79-.37h.57c.18 0 .43-.07.67.51.25.6.85 2.06.92 2.21.08.15.13.32.02.52-.1.2-.15.32-.3.5l-.45.52c-.15.15-.3.31-.13.61.17.3.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.36 1.46.3.15.47.13.64-.08.18-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.72.81 2.01.96.3.15.5.22.57.35.07.12.07.72-.18 1.41z"/></svg>קבל הצעה ←</a>
   </div>
 </div>
 
@@ -395,8 +395,8 @@
         <h1>אתה טס לקנטון כדי לסגור עסקאות.<br><span class="hl">לא כדי לנהל לוגיסטיקה.</span></h1>
         <p class="lead">אנחנו מריצים את הנסיעה שלך ליריד קנטון מקצה לקצה — רישום ותג כניסה, מלון ליד פאז'ואו, נהג צמוד, מתורגמן עסקי ופגישות מתואמות עם ספקים. <b>אתה מגיע לדוכן מוכן, ומתעסק רק במה שבאת בשבילו.</b></p>
         <div class="btn-row">
-          <a href="#form" class="btn btn-jade">קבל הצעה מותאמת ←</a>
-          <a href="https://wa.me/972549796009?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%AA%D7%9B%D7%A0%D7%9F%20%D7%A0%D7%A1%D7%99%D7%A2%D7%94%20%D7%9C%D7%99%D7%A8%D7%99%D7%93%20%D7%A7%D7%A0%D7%98%D7%95%D7%9F%202026" class="btn btn-ghost" target="_blank" rel="noopener">או בוואטסאפ</a>
+          <a href="https://wa.me/972549796009?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%AA%D7%9B%D7%A0%D7%9F%20%D7%A0%D7%A1%D7%99%D7%A2%D7%94%20%D7%9C%D7%99%D7%A8%D7%99%D7%93%20%D7%A7%D7%A0%D7%98%D7%95%D7%9F%202026" class="btn btn-jade" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.16c-.25.69-1.44 1.32-1.99 1.37-.51.05-1.15.07-1.86-.12-.43-.13-.98-.31-1.69-.61-2.97-1.28-4.91-4.27-5.06-4.47-.15-.2-1.21-1.61-1.21-3.07s.77-2.18 1.04-2.48c.27-.3.59-.37.79-.37h.57c.18 0 .43-.07.67.51.25.6.85 2.06.92 2.21.08.15.13.32.02.52-.1.2-.15.32-.3.5l-.45.52c-.15.15-.3.31-.13.61.17.3.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.36 1.46.3.15.47.13.64-.08.18-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.72.81 2.01.96.3.15.5.22.57.35.07.12.07.72-.18 1.41z"/></svg>קבל הצעה מותאמת ←</a>
+          <a href="#form" class="btn btn-ghost">או מלא טופס קצר</a>
         </div>
         <p class="btn-note">הצעה מפורטת אצלך תוך 24 שעות. ללא התחייבות, ללא עלות.</p>
       </div>
@@ -847,7 +847,7 @@
       <p>היריד מתקיים פעמיים בשנה. אם אוקטובר מתפספס, ההזדמנות הבאה היא באביב 2027.</p>
       <p style="color:var(--text);font-weight:700;font-size:1.2rem;margin-top:var(--s4)">אתה בפנים?</p>
       <div class="btn-row">
-        <a href="#form" class="btn btn-jade">כן — בואו נתחיל ←</a>
+        <a href="https://wa.me/972549796009?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%AA%D7%9B%D7%A0%D7%9F%20%D7%A0%D7%A1%D7%99%D7%A2%D7%94%20%D7%9C%D7%99%D7%A8%D7%99%D7%93%20%D7%A7%D7%A0%D7%98%D7%95%D7%9F%202026" class="btn btn-jade" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.16c-.25.69-1.44 1.32-1.99 1.37-.51.05-1.15.07-1.86-.12-.43-.13-.98-.31-1.69-.61-2.97-1.28-4.91-4.27-5.06-4.47-.15-.2-1.21-1.61-1.21-3.07s.77-2.18 1.04-2.48c.27-.3.59-.37.79-.37h.57c.18 0 .43-.07.67.51.25.6.85 2.06.92 2.21.08.15.13.32.02.52-.1.2-.15.32-.3.5l-.45.52c-.15.15-.3.31-.13.61.17.3.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.36 1.46.3.15.47.13.64-.08.18-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.72.81 2.01.96.3.15.5.22.57.35.07.12.07.72-.18 1.41z"/></svg>כן — בואו נתחיל ←</a>
       </div>
       <p class="btn-note">הצעה מפורטת תוך 24 שעות. ללא עלות, ללא התחייבות.</p>
       <div class="chan">
