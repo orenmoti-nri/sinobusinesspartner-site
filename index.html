@@ -81,7 +81,8 @@
 @media(max-width:640px){
   .cc-full{display:none}
   .cc-short{display:inline}
-  #cookie-consent{padding:8px 12px}
+  /* right padding keeps the buttons clear of the accessibility widget (48x48, 68px from the right edge) */
+  #cookie-consent{padding:8px 74px 8px 12px}
   #cookie-consent .cc-inner{flex-wrap:nowrap;gap:8px;align-items:center}
   #cookie-consent .cc-text{font-size:.72rem;line-height:1.35;flex:1 1 auto;min-width:0}
   #cookie-consent .cc-btns{width:auto;flex:0 0 auto;flex-wrap:nowrap;gap:6px}
@@ -1040,7 +1041,7 @@ html{scroll-padding-top:112px}
 <!-- ═══ COOKIE CONSENT (gates Meta Pixel) ═══ -->
 <div id="cookie-consent" role="region" aria-label="Cookie consent">
   <div class="cc-inner">
-    <p class="cc-text"><!-- FIX-04: short variant shown on mobile only; desktop copy unchanged --><span class="cc-full">We use cookies and the Meta Pixel to measure our marketing and improve your experience. They load only if you accept. See our <a href="privacy">Privacy Policy</a>.</span><span class="cc-short">Cookies &amp; the Meta Pixel — loaded only if you accept. <a href="privacy">Privacy Policy</a>.</span></p>
+    <p class="cc-text"><!-- FIX-04: short variant shown on mobile only; desktop copy unchanged --><span class="cc-full">We use cookies and the Meta Pixel to measure our marketing and improve your experience. They load only if you accept. See our <a href="privacy">Privacy Policy</a>.</span><span class="cc-short">Cookies &amp; Meta Pixel — only if you accept. <a href="privacy">Privacy Policy</a>.</span></p>
     <div class="cc-btns">
       <button type="button" class="cc-btn cc-decline" id="cc-decline">Decline</button>
       <button type="button" class="cc-btn cc-accept" id="cc-accept">Accept</button>
