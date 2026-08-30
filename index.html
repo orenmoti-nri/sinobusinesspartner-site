@@ -353,6 +353,10 @@
   .contact-panel .mk{font-family:var(--cn);font-weight:700;font-size:1.5rem;color:var(--jade);position:relative;margin-bottom:14px}
   .contact-panel h3{font-size:1.6rem;font-weight:600;margin-bottom:12px;position:relative}
   .contact-panel p{color:var(--text-2);margin-bottom:26px;position:relative;font-size:.98rem}
+/* FIX-05: each service card now links to its own page */
+.svc-link{display:inline-flex;align-items:center;gap:7px;margin-top:14px;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--jade);text-decoration:none;border-bottom:1px solid transparent;transition:.25s cubic-bezier(.2,.7,.2,1)}
+.svc-link:hover{border-bottom-color:var(--jade)}
+
 /* FIX-02: real contact form (Formspree, same endpoint pattern as /canton-fair) + WhatsApp kept alongside */
 .form-split{display:flex;align-items:center;gap:12px;margin:24px 0 18px;color:var(--muted);font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase}
 .form-split::before,.form-split::after{content:'';flex:1;height:1px;background:var(--line-2)}
@@ -650,48 +654,56 @@ html{scroll-padding-top:112px}
         <h4>Business-Travel Design</h4>
         <p>End-to-end itinerary engineering — supplier meetings, factory visits, executive schedules and the logistics that hold them together. We sell the business outcome, not just the trip.</p>
         <div class="spec">ITINERARY · MEETINGS · FACTORY VISITS</div>
+        <a class="svc-link" href="/services/business-travel-design">Explore this service &rarr;</a>
       </div>
       <div class="svc reveal">
         <div class="sh"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/><path d="M8 10.5l2 2 3.5-4"/></svg></span><span class="sx">SVC / 02</span></div>
         <h4>Supplier Matchmaking &amp; Sourcing</h4>
         <p>Beyond meetings — we help you find and verify the right suppliers. Curated introductions to vetted manufacturers, factory audits and sourcing support, so you leave China with partners you can trust, not just business cards.</p>
         <div class="spec">MATCHMAKING · SUPPLIER VETTING · FACTORY AUDITS</div>
+        <a class="svc-link" href="/services/supplier-matchmaking-sourcing">Explore this service &rarr;</a>
       </div>
       <div class="svc reveal">
         <div class="sh"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h14a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H9l-4 3v-3H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><path d="M6 9h10M6 12h6"/></svg></span><span class="sx">SVC / 03</span></div>
         <h4>Business Facilitation &amp; Interpretation</h4>
         <p>On-the-ground staff who are business facilitators, not just guides — professional interpreters fluent in manufacturing and sourcing terminology and boardroom etiquette, plus introductions to industry bodies and local authorities where it counts.</p>
         <div class="spec">INTERPRETERS · FACILITATORS · INTRODUCTIONS</div>
+        <a class="svc-link" href="/services/business-facilitation-interpretation">Explore this service &rarr;</a>
       </div>
       <div class="svc reveal">
         <div class="sh"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><path d="M16 5.5a3 3 0 0 1 0 6M15.5 20a5.5 5.5 0 0 1 5.5 0" opacity=".55"/></svg></span><span class="sx">SVC / 04</span></div>
         <h4>MICE, Delegations &amp; Incentives</h4>
         <p>Meetings, incentives, conferences and trade delegations — plus reward and incentive travel for top performers — managed end-to-end for groups, with one organized Israeli desk coordinating every moving part.</p>
         <div class="spec">GROUPS · EVENTS · INCENTIVES</div>
+        <a class="svc-link" href="/services/mice-delegations-incentives">Explore this service &rarr;</a>
       </div>
       <div class="svc reveal">
         <div class="sh"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 9l1.2-4h13.6L20 9"/><path d="M4 9a2 2 0 0 0 4 0 2 2 0 0 0 4 0 2 2 0 0 0 4 0 2 2 0 0 0 4 0"/><path d="M5 10.5V20h14v-9.5"/><path d="M9.5 20v-4.5h5V20"/></svg></span><span class="sx">SVC / 05</span></div>
         <h4>Exhibitions &amp; Trade Fairs</h4>
         <p>Access and on-site coordination for the Canton Fair (广交会), the Yiwu wholesale market and major industry expos — registration, scheduling, interpreters and follow-ups.</p>
         <div class="spec">CANTON FAIR · YIWU · INDUSTRY EXPOS</div>
+        <a class="svc-link" href="/services/exhibitions-trade-fairs">Explore this service &rarr;</a>
       </div>
       <div class="svc reveal">
         <div class="sh"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19h16"/><path d="M6 19a6 6 0 0 1 12 0"/><path d="M12 7V5M9.5 7h5"/></svg></span><span class="sx">SVC / 06</span></div>
         <h4>Concierge &amp; Ground Services</h4>
         <p>Vetted hotels, private transport, interpreters, dining, wellness and guided experiences — a personal concierge on the ground for whatever you need, arranged and managed by trusted local partners. Ask once; it's handled.</p>
         <div class="spec">CONCIERGE · HOTELS · TRANSFERS · DINING · WELLNESS</div>
+        <a class="svc-link" href="/services/concierge-ground-services">Explore this service &rarr;</a>
       </div>
       <div class="svc reveal">
         <div class="sh"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8.5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2 2 2 0 0 0 0 4 2 2 0 0 1-2 2H5a2 2 0 0 1-2-2 2 2 0 0 0 0-4z"/><path d="M13 6.5v11" stroke-dasharray="2 2"/></svg></span><span class="sx">SVC / 07</span></div>
         <h4>Air Ticketing &amp; Insurance</h4>
         <p>Flights and travel insurance arranged through a licensed IATA partner agency — fares, changes and cover handled inside the same itinerary, not left to the traveler.</p>
         <div class="spec">IATA PARTNER · FLIGHTS · COVER</div>
+        <a class="svc-link" href="/services/air-ticketing-insurance">Explore this service &rarr;</a>
       </div>
       <div class="svc reveal">
         <div class="sh"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="10" r="2.6"/><path d="M8.5 15.5h7"/></svg></span><span class="sx">SVC / 08</span></div>
         <h4>Visa &amp; Entry Guidance</h4>
         <p>China entry mapped to your passport and country — including the current visa-free transit options for eligible travelers, invitation letters and documentation. Requirements vary by nationality; we route you the right way in.</p>
         <div class="spec">VISA · TRANSIT · INVITATIONS</div>
+        <a class="svc-link" href="/services/visa-entry-guidance">Explore this service &rarr;</a>
       </div>
     </div>
   </div>
